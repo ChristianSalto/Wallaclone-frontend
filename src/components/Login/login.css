@@ -6,11 +6,11 @@
   background     : black;
 }
 
-.form-regis {
-  margin-top   : 15%;
+.form-log {
+  margin-top   : 10%;
   padding      : 5px;
   width        : 400px;
-  height       : 50%;
+  height       : 400px;
   border       : 0.5px solid rgb(83, 82, 82);
   border-radius: 10px;
 }
@@ -40,7 +40,7 @@
 }
 
 .button {
-  margin: 25px;
+  margin     : 25px;
   margin-left: 40px;
 }
 
@@ -48,11 +48,40 @@
   background-color: aqua;
 }
 
-.link-log{
+.link-log {
   text-decoration: none;
-  outline: none;
+  outline        : none;
 }
 
-.div-lost-pass{
+.div-lost-pass {
   margin-left: 40px;
+  margin-top : 30px;
+}
+
+
+
+@media only screen and (max-width: 400px) {
+
+  .form-log {
+    width: 300px;
+  }
+
+  .input {
+    font-size: 15px;
+    width    : 200px;
+  }
+
+  .button {
+    font-size  : 10px;
+    margin     : 20px;
+    margin-left: 30px;
+  }
+
+  .input:focus {
+    width: 230px
+  }
+
+  .div-lost-pass {
+    margin: 30px;
+  }
 }

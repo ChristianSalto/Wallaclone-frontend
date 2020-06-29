@@ -10,14 +10,13 @@ export default function Login(props) {
   const handleLogin = async (event) => {
     const { username, password } = event;
 
-    console.log(props);
-    // const data = await userLogin(username, password);
-    // console.log(data);
+    const data = await userLogin(username, password);
+    console.log(data);
   };
   return (
     <div className="container">
       <Form
-        className="form-regis"
+        className="form-log"
         onSubmit={handleLogin}
         initialValue={{ username: "", password: "" }}
       >
@@ -28,7 +27,7 @@ export default function Login(props) {
           Login
         </Button>
         <Link to="/register" className="link-log">
-          <Button variant="contained" type="button">
+          <Button variant="contained" type="button" className="button">
             I'm not registered
           </Button>
         </Link>

@@ -7,16 +7,16 @@
 }
 
 .form-regis {
-  margin-top   : 15%;
+  margin-top   : 10%;
   padding      : 5px;
-  width        : 400px;
-  height       : 50%;
+  width        : 450px;
+  height       : 450px;
   border       : 0.5px solid rgb(83, 82, 82);
   border-radius: 10px;
 }
 
 .input-re {
-  margin       : 40px;
+  margin       : 45px;
   background   : none;
   color        : #c6c6c6;
   font-size    : 18px;
@@ -40,18 +40,43 @@
 }
 
 .button-re {
-  margin: 25px
+  margin     : 25px;
+  margin-left: 40px;
 }
 
 .button-re:active {
   background-color: aqua;
 }
 
-.link-log{
+.link-log {
   text-decoration: none;
-  outline: none;
+  outline        : none;
 }
 
-.msj-re{
+.msj-re {
   color: red;
+}
+
+
+@media only screen and (max-width: 400px) {
+
+  .form-regis {
+    width: 300px;
+  }
+
+  .input-re {
+    font-size: 15px;
+    width    : 200px;
+  }
+
+  .button-re {
+    font-size  : 10px;
+    margin     : 20px;
+    margin-left: 40px;
+  }
+
+  .input-re:focus {
+    width: 230px
+  }
+
 }

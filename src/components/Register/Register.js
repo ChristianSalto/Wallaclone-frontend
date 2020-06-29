@@ -18,7 +18,7 @@ const Register = (props) => {
       email: email,
       password: password,
     };
-    console.log(user);
+
     const { msj, success } = await registerUser(user);
     setMsj(msj);
     setTimeout(() => {
@@ -42,7 +42,7 @@ const Register = (props) => {
           Register
         </Button>
         <Link to="/login" className="link-log">
-          <Button variant="contained" type="button">
+          <Button variant="contained" type="button" className="button-re">
             I'm already registered
           </Button>
         </Link>

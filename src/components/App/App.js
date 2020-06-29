@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Register from '../Register';
-import Login from '../Login/Login';
-import Main from '../Main';
-//import { Provider } from 'react-redux';
-import { StylesProvider } from '@material-ui/core/styles';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Register from "../Register";
+import Login from "../Login";
+import Main from "../Main";
+import Privatezone from "../Privatezone";
+import PrivateRoute from "../../privateRouter/PrivateRouter";
+import { StylesProvider } from "@material-ui/core/styles";
 
 class App extends Component {
   render() {
@@ -25,6 +26,14 @@ class App extends Component {
             render={(props) => (
               <StylesProvider injectFirst>
                 <Login {...props} />
+              </StylesProvider>
+            )}
+          />
+          <PrivateRoute
+            path="/privatezone"
+            component={(props) => (
+              <StylesProvider injectFirst>
+                <Privatezone {...props} />
               </StylesProvider>
             )}
           />

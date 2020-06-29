@@ -20,13 +20,18 @@ export const registerUser = (data) => {
 };
 
 export const loginUser = (username, password) => {
+  const data = {
+    username,
+    password,
+  };
+  
   return fetch(`${URL}login`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
     method: "POST",
-    body: JSON.stringify(username, password),
+    body: JSON.stringify(data),
   })
     .then((res) => res.json())
     .catch((err) => err);

@@ -1,11 +1,7 @@
 import * as TYPES from "./types";
 
 const initialState = {
-  user: {
-    username: "",
-    email: "",
-    myAdverts: [],
-  },
+  user: [],
   adverts: [],
   ui: {
     isFetching: false,

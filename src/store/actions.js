@@ -11,7 +11,7 @@ export const fetchFailure = (error) => ({
 
 export const fetchSuccess = (data) => ({
   type: TYPES.FETCH_SUCCESS,
-  data
+  data,
 });
 
 export const registerUser = (user) => async (dispatch, getState, { Api }) => {
@@ -21,17 +21,30 @@ export const registerUser = (user) => async (dispatch, getState, { Api }) => {
     dispatch(fetchSuccess(data));
     return data;
   } catch (error) {
-    dispatch(fetchFailure(error))
+    dispatch(fetchFailure(error));
   }
 };
 
-
-export const loadLogin = (username, password) => async (dispatch,getState,{Api}) => {
+export const loadLogin = (username, password) => async (
+  dispatch,
+  getState,
+  { Api }
+) => {
   dispatch(fetchRequest());
   try {
     const data = await Api.loginUser(username, password);
+    if (data.token) {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          username: data.username,
+          email: data.email,
+          token: data.token,
+        })
+      );
+    }
     dispatch(fetchSuccess(data));
   } catch (error) {
-    dispatch(fetchFailure(error))
+    dispatch(fetchFailure(error));
   }
-}
+};

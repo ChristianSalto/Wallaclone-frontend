@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Login from './Login';
 
 //import { getStateUser } from '../../store/selectors';
-import { loadLogin } from '../../store/action';
+import { loadLogin } from '../../store/actions';
 
 // function mapStateToProps(state, ownProps) {
 //   return {
