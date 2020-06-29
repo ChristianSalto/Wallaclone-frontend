@@ -1,0 +1,57 @@
+.container {
+  display        : flex;
+  justify-content: center;
+  width          : 100%;
+  height         : 100%;
+  background     : black;
+}
+
+.form-regis {
+  margin-top   : 15%;
+  padding      : 5px;
+  width        : 400px;
+  height       : 50%;
+  border       : 0.5px solid rgb(83, 82, 82);
+  border-radius: 10px;
+}
+
+.input-re {
+  margin       : 40px;
+  background   : none;
+  color        : #c6c6c6;
+  font-size    : 18px;
+  padding      : 10px 10px 10px 5px;
+  display      : block;
+  width        : 250px;
+  border       : none;
+  border-radius: 0;
+  border-bottom: 1px solid #c6c6c6;
+  transition   : 0.3s;
+}
+
+.input-re:focus {
+  box-shadow: 2px 2px 4px 0px aqua;
+  outline   : none;
+  width     : 300px
+}
+
+.input-re:hover {
+  border-bottom: 1px solid aqua;
+}
+
+.button-re {
+  margin: 25px
+}
+
+.button-re:active {
+  background-color: aqua;
+}
+
+.link-log{
+  text-decoration: none;
+  outline: none;
+}
+
+.msj-re{
+  color: red;
+}

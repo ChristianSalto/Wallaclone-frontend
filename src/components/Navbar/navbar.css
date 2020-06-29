@@ -1,0 +1,62 @@
+.title-div {
+    margin-left: 1rem;
+}
+
+.title-link {
+    text-decoration: none;
+}
+
+.btn-sidebar {
+    margin    : .5rem;
+    font-size : 2rem;
+    padding   : .3rem;
+    background: none;
+    border    : none;
+    color     : white;
+    cursor    : pointer;
+    outline   : none;
+}
+
+.nav-menu {
+    position           : fixed;
+    transform          : translate(5rem);
+    transition-duration: 2s;
+    width              : 10rem;
+    height             : 15rem;
+    text-align         : center;
+    background-color   : black;
+    border-radius      : 10px;
+}
+
+.nav-menu.show {
+    transition-duration: 1s;
+    transform          : translate(-5rem);
+}
+
+ul {
+    list-style: none;
+}
+
+/* .container-menu{
+    border: 1px solid black;
+    height: 15rem;
+} */
+
+.nav-menu-li {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    color          : white;
+    padding        : .4rem;
+    text-decoration: none;
+    font-size      : 1.2rem;
+    margin-top     : 1rem;
+}
+
+.nav-menu-li:hover{
+    color: aqua;
+}
+
+.face {
+    margin-left: 12px;
+}
