@@ -1,0 +1,21 @@
+.container-newpass {
+    display: flex;
+    margin : 5px;
+    padding: 10px;
+}
+
+.btn-newpass {
+    margin-top: 45px;
+}
+
+.inp-newpss {
+    border-radius: 10px;
+    border       : 1px solid rgb(44, 43, 43);
+    background   : gray;
+    padding      : 4px;
+}
+
+.inp-newpss::placeholder {
+    color  : white;
+    opacity: .3;
+}

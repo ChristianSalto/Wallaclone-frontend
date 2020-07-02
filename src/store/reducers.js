@@ -37,8 +37,8 @@ export function ui(state = initialState.ui, action) {
     case TYPES.FETCH_FAILURE:
       return {
         ...state,
-        isFetching: action.data.success,
-        msj: action.data.msj,
+        isFetching: false,
+        msj: action.error,
       };
 
     case TYPES.FETCH_SUCCESS:

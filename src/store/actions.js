@@ -28,7 +28,7 @@ export const registerUser = (user) => async (dispatch, getState, { Api }) => {
 export const loadLogin = (username, password) => async (
   dispatch,
   getState,
-  { Api }
+  { Api, history }
 ) => {
   dispatch(fetchRequest());
   try {
@@ -42,8 +42,36 @@ export const loadLogin = (username, password) => async (
           token: data.token,
         })
       );
+    } else {
+      history.push(data.path);
+      dispatch(fetchSuccess(data));
+      return getState();
     }
     dispatch(fetchSuccess(data));
+    history.push("/privatezone");
+    return getState();
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const fetchRecoverPass = (email) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.postRecoverPass(email);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        username: data.username,
+        email: data.email,
+        token: data.token,
+      })
+    );
+    history.push("/login");
   } catch (error) {
     dispatch(fetchFailure(error));
   }

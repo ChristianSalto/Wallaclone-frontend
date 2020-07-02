@@ -11,16 +11,16 @@ function mapStateToProps(state, ownProps) {
 }
 
 const PrivateRoute = ({ component: Component, ...props }) => {
-  let username = null;
+  let token = null;
   if (props.user) {
-    username = props.user;
+    token = props.user.token;
   }
 
   return (
     <Route
       {...props}
       render={(props) =>
-        username ? <Component {...props} /> : <Redirect to="/login" />
+        token ? <Component {...props} /> : <Redirect to="/login" />
       }
     />
   );

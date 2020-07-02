@@ -1,0 +1,22 @@
+.container-recoverpass {
+    display: flex;
+    margin : 5px;
+    padding: 10px;
+}
+
+.btn-recoverpass {
+    margin-top : 45px;
+    margin-left: -350px;
+}
+
+.inp-recoverpass {
+    border-radius: 10px;
+    border       : 1px solid rgb(44, 43, 43);
+    background   : gray;
+    padding      : 4px;
+}
+
+.inp-recoverpass::placeholder {
+    color  : white;
+    opacity: .3;
+}

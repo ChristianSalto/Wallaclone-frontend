@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Privatezone = () => {
+const Privatezone = (...props) => {
     return(
         <div>
             <h1>Zona privada</h1>

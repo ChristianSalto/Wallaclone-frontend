@@ -1,0 +1,35 @@
+.cards {
+    width     : 20rem;
+    margin    : 5rem;
+    word-break: break-word;
+    border: 0.1px solid gray;
+}
+
+.cards:hover {
+    border: 0.1px solid rgb(0, 225, 255);
+    cursor: pointer;
+}
+
+.img-cards {
+    width: 100%;
+}
+
+.cards-body {
+    padding: 1rem;
+}
+
+.container-star {
+    display        : flex;
+    height         : 30px;
+    align-items    : center;
+    justify-content: space-between;
+    width          : 100%;
+}
+
+.container-price {
+    display    : flex;
+    word-break : break-word;
+    height     : 30px;
+    width      : 50%;
+    align-items: center;
+}

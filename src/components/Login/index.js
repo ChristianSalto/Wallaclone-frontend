@@ -1,15 +1,7 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import Login from './Login';
-
-//import { getStateUser } from '../../store/selectors';
-import { loadLogin } from '../../store/actions';
-
-// function mapStateToProps(state, ownProps) {
-//   return {
-//     user: getStateUser(state),
-//   };
-// }
+import Login from "./Login";
+import { loadLogin } from "../../store/actions";
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {

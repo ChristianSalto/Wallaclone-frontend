@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Input } from '@material-ui/core';
-import NavBar from '../Navbar/Navbar';
-import './main.css';
+import React, { useState, useEffect } from "react";
+import { Input } from "@material-ui/core";
+import NavBar from "../Navbar/Navbar";
+import "./main.css";
+import Cards from "../Cards";
 
-import { getExpress } from '../../services/api';
+import { getExpress } from "../../services/api";
 
 export default function Main() {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   useEffect(() => {
     const text1 = async () => {
       const text = await getExpress();
-      console.log(text)
+      console.log(text);
       // console.log(typeof text);
       // setText(text);
     };
@@ -26,6 +27,7 @@ export default function Main() {
       <main className="main">
         <Input />
         <h2>{text}</h2>
+        <Cards />
       </main>
       <footer className="footer">
         <h2>footer</h2>

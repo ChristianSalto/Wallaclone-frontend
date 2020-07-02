@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
 import { Button } from "@material-ui/core";
 import "./login.css";
 
-export default function Login(props) {
+export function Login(props) {
+  const [msj, setMsj] = useState("");
   const { userLogin } = props;
+
   const handleLogin = async (event) => {
     const { username, password } = event;
-
-    const data = await userLogin(username, password);
-    console.log(data);
+    const { ui } = await userLogin(username, password);
+    setMsj(ui.msj);
   };
+
+  useEffect(() => {
+    const timeId = setInterval(() => {
+      setMsj("");
+    }, 3000);
+    return () => clearInterval(timeId);
+  }, []);
+
   return (
     <div className="container">
       <Form
@@ -32,10 +41,18 @@ export default function Login(props) {
           </Button>
         </Link>
         <div className="div-lost-pass">
-          <Link to="/">I do not remember my password</Link>
+          <Link
+            to={{
+              pathname: "/recoverPass",
+            }}
+          >
+            I do not remember my password
+          </Link>
         </div>
-        {/* <h3>{msj}</h3> */}
       </Form>
+      <h3 className="msj-log">{msj}</h3>
     </div>
   );
 }
+
+export default Login;
