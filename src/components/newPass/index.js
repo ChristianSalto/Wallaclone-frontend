@@ -1,9 +1,12 @@
 import { connect } from "react-redux";
 
 import NewPass from "./NewPass";
+import { fetchNewPass } from "../../store/actions";
 
 function mapDispatchToProps(dispatch, ownProps) {
-  return {};
+  return {
+    setNewPass: (password) => dispatch(fetchNewPass(password)),
+  };
 }
 
 const connected = connect(null, mapDispatchToProps);

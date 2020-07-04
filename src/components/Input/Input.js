@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { formContext } from '../Form/Form';
+import React, { useContext } from "react";
+import { formContext } from "../Form/Form";
 
-const Input = ({ component: Component = 'input', ...props }) => {
+const Input = ({ component: Component = "input", ...props }) => {
   const { value, handleChange } = useContext(formContext);
   return (
     <Component
-      placeholder={props.name}
+      placeholder={props.placeholder ? props.placeholder : props.name}
       required
       {...props}
       onChange={handleChange}
@@ -13,6 +13,5 @@ const Input = ({ component: Component = 'input', ...props }) => {
     />
   );
 };
-
 
 export default Input;

@@ -1,35 +1,89 @@
 .cards {
-    width     : 20rem;
-    margin    : 5rem;
-    word-break: break-word;
-    border: 0.1px solid gray;
+    width              : 20rem;
+    margin             : 3rem;
+    word-break         : break-word;
+    background         : white;
+    border-radius      : 10px;
+    transition-duration: 0.5s;
 }
 
 .cards:hover {
-    border: 0.1px solid rgb(0, 225, 255);
-    cursor: pointer;
+    transform: translateY(-10px);
+    cursor   : pointer;
 }
 
 .img-cards {
-    width: 100%;
+    width        : 100%;
+    height       : 100%;
+    border-radius: 10px 10px 0px 0px;
 }
+
 
 .cards-body {
-    padding: 1rem;
+    margin-top: -5px;
 }
 
-.container-star {
+.c-title {
+    padding    : 0.5rem;
+    font-size  : 20px;
+    text-align : center;
+    background : rgb(192, 190, 190);
+    font-family: fantasy;
+}
+
+.c-descri {
+    box-shadow : inset 0 0 5px 5px rgb(192, 190, 190);
+    padding    : 1rem;
+    font-family: fantasy;
+}
+
+
+.c-tags {
+    text-align: center;
+    padding   : 0.5rem;
+    background: rgb(192, 190, 190);
+    color     : blue;
+}
+
+.c-autor {
+    padding     : 0.6rem;
+    padding-left: 1rem;
+    box-shadow  : inset 0 0 5px 5px rgb(202, 106, 41);
+    font-family : monospace;
+    display     : flex;
+    align-items : center;
+}
+
+
+
+.c-date {
+    padding     : 0.6rem;
+    padding-left: 1rem;
+    box-shadow  : inset 0 0 5px 5px rgb(202, 106, 41);
+    font-family : monospace;
+    display     : flex;
+    align-items : center;
+}
+
+.sp-autor {
+    margin-left: 1rem;
+}
+
+.sp-date {
+    margin-left: 1rem;
+}
+
+.container-sts-pri {
     display        : flex;
     height         : 30px;
     align-items    : center;
     justify-content: space-between;
+    word-break     : break-word;
     width          : 100%;
-}
-
-.container-price {
-    display    : flex;
-    word-break : break-word;
-    height     : 30px;
-    width      : 50%;
-    align-items: center;
+    padding        : 0.5rem;
+    background     : rgb(202, 106, 41);
+    padding        : 0.6rem;
+    padding-top    : 1.5rem;
+    padding-bottom : 1rem;
+    color          : black;
 }

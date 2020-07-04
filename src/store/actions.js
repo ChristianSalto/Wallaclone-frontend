@@ -14,6 +14,11 @@ export const fetchSuccess = (data) => ({
   data,
 });
 
+export const fetchGetAds = (data) => ({
+  type: TYPES.GET_ADS,
+  data,
+});
+
 export const registerUser = (user) => async (dispatch, getState, { Api }) => {
   dispatch(fetchRequest());
   try {
@@ -72,6 +77,36 @@ export const fetchRecoverPass = (email) => async (
       })
     );
     history.push("/login");
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const fetchNewPass = (password) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.putNewPass(password);
+    dispatch(fetchSuccess(data));
+    return getState();
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const fetchAds = (filter, sort) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.getAds(filter, sort);
+    dispatch(fetchGetAds(data));
+    return data;
   } catch (error) {
     dispatch(fetchFailure(error));
   }

@@ -25,6 +25,18 @@ export function user(state = initialState.user, action) {
   }
 }
 
+export function adverts(state = initialState.adverts, action) {
+  switch (action.type) {
+    case TYPES.GET_ADS:
+      return {
+        ...state,
+        adverts: action.data.ads,
+      };
+    default:
+      return state;
+  }
+}
+
 export function ui(state = initialState.ui, action) {
   switch (action.type) {
     case TYPES.FETCH_REQUEST:
