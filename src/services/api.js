@@ -1,10 +1,8 @@
 const URL = "http://localhost:3000/";
-// const HEADERS = {
-//   headers: {
-//     Accept: "application/json",
-//     "Content-Type": "application/json",
-//   },
-// };
+const headers = {
+  Accept: "application/json",
+  "Content-Type": "application/json",
+};
 
 export const getAds = (filter, date) => {
   return fetch(`${URL}adsview?params=${JSON.stringify(filter)}&sort=${date}`)
@@ -43,6 +41,38 @@ export const loginUser = (username, password) => {
       "Content-Type": "application/json",
     },
     method: "POST",
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const deleteUser = (id, token) => {
+  const data = {
+    id,
+    token,
+  };
+  return fetch(`${URL}privatezone`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "DELETE",
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const putUser = (id, token, params) => {
+  const data = {
+    id,
+    token,
+    params,
+  };
+  return fetch(`${URL}privatezone`, {
+    headers,
+    method: "PUT",
     body: JSON.stringify(data),
   })
     .then((res) => res.json())

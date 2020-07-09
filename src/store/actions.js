@@ -49,6 +49,7 @@ export const loadLogin = (username, password) => async (
           username: data.username,
           email: data.email,
           token: data.token,
+          id: data.id,
         })
       );
     } else {
@@ -126,6 +127,44 @@ export const fetchAdsById = (id) => async (
     const data = await Api.getAdsById(id);
     dispatch(fetchGetAds(data));
     history.push(`/details/${data.ads[0].name}`);
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const fetchDeleteUser = (id, token) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.deleteUser(id, token);
+    dispatch(clearSession());
+    history.push(data.path);
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const fetchPutUser = (id, token, params) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.putUser(id, token, params);
+    // localStorage.setItem(
+    //   "user",
+    //   JSON.stringify({
+    //     username: data.username,
+    //     email: data.email,
+    //   })
+    // );
+    dispatch(fetchSuccess(data));
+    localStorage.removeItem("user");
+    return getState();
   } catch (error) {
     dispatch(fetchFailure(error));
   }

@@ -18,6 +18,7 @@ export function user(state = initialState.user, action) {
           username: action.data.username,
           email: action.data.email,
           token: action.data.token,
+          id: action.data.id,
         },
       };
 

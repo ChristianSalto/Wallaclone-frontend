@@ -11,7 +11,7 @@
     border        : 1px solid red;
     margin        : 50px;
     width         : 400px;
-    height        : 500px;
+    height        : flex;
     text-align    : center;
     padding       : 20px;
 }
@@ -26,12 +26,42 @@
 }
 
 .I-face {
-    color: rgb(128, 0, 0)
+    color         : rgb(128, 0, 0);
+    vertical-align: middle;
+    margin-right  : 20px;
 }
 
 .I-email {
-    margin-top: 20px;
-    color     : white;
+    margin-top    : 20px;
+    color         : white;
+    vertical-align: sub;
+    margin-right  : 20px;
+}
+
+.form-upd {
+    margin-top    : 15px;
+    border        : 1px solid green;
+    display       : flex;
+    flex-direction: column;
+    padding       : 10px;
+}
+
+.inp-upd {
+    margin       : 10px;
+    background   : none;
+    height       : 30px;
+    border       : none;
+    border-radius: 0;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+.inp-upd::placeholder {
+    color  : rgb(218, 217, 214);
+    opacity: 0.7;
+}
+
+.inp-upd:focus {
+    outline: none;
 }
 
 .btn-dlt {
@@ -39,7 +69,7 @@
 }
 
 .btn-pass {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .I-profile {
