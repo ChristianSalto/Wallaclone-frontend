@@ -12,8 +12,9 @@ function mapStateToProps(state, ownProps) {
 
 const PrivateRoute = ({ component: Component, ...props }) => {
   let token = null;
-  if (props.user) {
-    token = props.user.token;
+  const { user } = props.user;
+  if (user) {
+    token = user.token;
   }
 
   return (

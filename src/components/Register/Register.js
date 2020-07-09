@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
 import { Button } from "@material-ui/core";
+import Icon from "@material-ui/core/Icon";
 
 import "./register.css";
 
@@ -28,7 +29,10 @@ const Register = (props) => {
   };
 
   return (
-    <div className="container">
+    <div className="container-R">
+      <div>
+        <h1 className="title">WALLACL0NE</h1>
+      </div>
       <Form
         className="form-regis"
         onSubmit={handeleRegister}
@@ -48,6 +52,9 @@ const Register = (props) => {
         </Link>
         <h3 className="msj-re">{msj}</h3>
       </Form>
+      <Link to="/">
+        <Icon className="home">home</Icon>
+      </Link>
     </div>
   );
 };

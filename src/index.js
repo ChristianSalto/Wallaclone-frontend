@@ -14,7 +14,7 @@ export const history = createBrowserHistory();
 
 let user = JSON.parse(localStorage.getItem("user"));
 
-const store = configureStore({ Api, history })({ user: user });
+const store = configureStore({ Api, history })({ user: { user } });
 
 ReactDOM.render(
   <Provider store={store}>

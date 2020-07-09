@@ -1,3 +1,5 @@
+/*----Grid Layout------*/
+
 .grid-container {
     display: grid;
     grid-template-areas:
@@ -31,11 +33,14 @@
 .footer {
     grid-area       : footer;
     background-color: black;
-    color           : white;
     display         : flex;
     justify-content : center;
     align-items     : center;
+    height          : 200px;
 }
+
+
+/*----Main------*/
 
 
 .container-cards {
@@ -45,19 +50,30 @@
     justify-content: center;
 }
 
+.container-form {
+    display       : flex;
+    flex-direction: row;
+    flex-wrap     : wrap;
+    margin-top    : 10px;
+}
+
 .btn-search {
+    margin-top : 2%;
     margin-left: -70px;
     padding    : 10px;
+    height     : 50px;
 }
 
 .inp-search {
+    margin-top   : 2%;
+    margin-left  : 10px;
     background   : none;
     border       : none;
-    height       : 40px;
+    height       : 50px;
     width        : 250px;
     padding-left : 10px;
     box-shadow   : inset 0 0 5px 5px rgb(90, 89, 89);
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px;
 }
 
 .inp-search:focus {
@@ -70,8 +86,93 @@
 }
 
 .btn-date {
-    margin-left: 15px;
-    height     : 40px;
-    border     : 1px solid rgb(87, 87, 87);
-    color      : beige;
+    margin-top   : 2%;
+    margin-left  : 2%;
+    height       : 50px;
+    border-radius: 10px;
+    color        : beige;
+    box-shadow   : inset 0 0 5px 5px rgb(90, 89, 89);
+    background   : rgb(44, 43, 43);
+    width        : 300px;
+}
+
+
+/*----Footer-----*/
+
+
+.cntr-footer {
+    display        : flex;
+    justify-content: space-around;
+    padding        : 10px;
+    width          : 100%;
+    height         : 100%;
+}
+
+.cntr-services {
+    color     : white;
+    padding   : 10px;
+    margin-top: 25px;
+}
+
+.cntr-services>h2 {
+    margin-bottom  : 20px;
+    text-decoration: underline;
+}
+
+.cntr-services>ul>li {
+    margin-bottom: 10px;
+}
+
+.cntr-contacts {
+    color     : white;
+    padding   : 10px;
+    margin-top: 25px;
+}
+
+
+.cntr-contacts>h2 {
+    margin-bottom  : 20px;
+    text-decoration: underline;
+}
+
+.cntr-contacts>ul>li {
+    margin-bottom: 10px;
+}
+
+
+
+.cntr-social {
+    color     : white;
+    padding   : 10px;
+    margin-top: 25px;
+}
+
+.cntr-social>h2 {
+    margin-bottom  : 20px;
+    text-decoration: underline;
+}
+
+
+.cntr-social>a {
+    margin: 10px
+}
+
+
+@media (max-width: 600px) {
+    .footer {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 450px) {
+    .icons {
+        width : 25px;
+        height: 25px;
+    }
 }

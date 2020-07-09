@@ -20,18 +20,21 @@
 
 .nav-menu {
     position           : fixed;
-    transform          : translate(5rem);
-    transition-duration: 2s;
-    width              : 10rem;
+    transform          : translate(5.6rem);
+    transition-duration: 1s;
+    width              : 9rem;
     height             : 15rem;
     text-align         : center;
     background-color   : black;
     border-radius      : 0px 10px;
+    z-index            : 10000;
 }
 
 .nav-menu.show {
+    position           : absolute;
     transition-duration: 1s;
-    transform          : translate(-5rem);
+    transform          : translate(-5.6rem);
+    z-index            : 10000;
 }
 
 ul {

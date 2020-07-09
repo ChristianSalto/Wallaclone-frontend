@@ -6,6 +6,7 @@ import Main from "../Main";
 import RecoverPass from "../RecoverPass";
 import NewPass from "../newPass";
 import Privatezone from "../Privatezone";
+import Details from "../Details";
 import PrivateRoute from "../../privateRouter/PrivateRouter";
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           path="/recoverpass"
           render={(props) => <RecoverPass {...props} />}
         />
+        <Route path="/details" render={(props) => <Details {...props} />} />
         <PrivateRoute
           path="/newpass"
           component={(props) => <NewPass {...props} />}

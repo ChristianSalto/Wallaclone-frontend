@@ -1,51 +1,50 @@
 import React from "react";
 import Radio from "@material-ui/core/Radio";
-// import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
-// import RadioButtonCheckedIcon from "@material-ui/icons/RadioButtonChecked";
 
-const ButtonRadio = () => {
-  const [selectedValue, setSelectedValue] = React.useState("a");
+import "./buttonRadio.css";
 
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-    console.log(event.target.value);
-  };
+const ButtonRadio = ({ handleFilterTags, selectedValue }) => {
   return (
-    <div>
+    <div className="btn-r-container">
+      <label>Work</label>
       <Radio
-        checked={selectedValue === "a"}
-        onChange={handleChange}
-        value="a"
-        label="work"
+        checked={selectedValue === "work"}
+        onChange={handleFilterTags}
+        value="work"
         color="default"
         name="radio-button-demo"
-        inputProps={{ "aria-label": "A" }}
       />
+      <label>Lifestyle</label>
       <Radio
-        checked={selectedValue === "b"}
-        onChange={handleChange}
-        value="b"
+        checked={selectedValue === "lifestyle"}
+        onChange={handleFilterTags}
+        value="lifestyle"
         color="default"
         name="radio-button-demo"
-        inputProps={{ "aria-label": "B" }}
       />
+      <label>Mobile</label>
       <Radio
-        checked={selectedValue === "d"}
-        onChange={handleChange}
-        value="d"
+        checked={selectedValue === "mobile"}
+        onChange={handleFilterTags}
+        value="mobile"
         color="default"
         name="radio-button-demo"
-        inputProps={{ "aria-label": "D" }}
       />
+      <label>Motor</label>
       <Radio
-        checked={selectedValue === "e"}
-        onChange={handleChange}
-        value="e"
+        checked={selectedValue === "motor"}
+        onChange={handleFilterTags}
+        value="motor"
         color="default"
         name="radio-button-demo"
-        inputProps={{ "aria-label": "E" }}
-        // icon={<RadioButtonUncheckedIcon fontSize="small" />}
-        // checkedIcon={<RadioButtonCheckedIcon fontSize="small" />}
+      />
+      <label>Default</label>
+      <Radio
+        checked={selectedValue === "default"}
+        onChange={handleFilterTags}
+        value="default"
+        color="default"
+        name="radio-button-demo"
       />
     </div>
   );

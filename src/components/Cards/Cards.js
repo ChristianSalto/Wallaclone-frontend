@@ -5,13 +5,17 @@ import Icon from "@material-ui/core/Icon";
 import "./cards.css";
 
 const Cards = (props) => {
-  console.log(props);
+  const { ads, getAdsById } = props;
+  const handleDetails = (id) => {
+    getAdsById(id);
+  };
+
   return (
     <>
-      {props.ads.map((card) => (
+      {ads.map((card) => (
         <div key={card._id}>
-          <Card className="cards">
-            <Card.Img variant="top" src="img/ps5.jpg" className="img-cards" />
+          <Card className="cards" onClick={() => handleDetails(card._id)}>
+            <Card.Img variant="top" src="/img/ps5.jpg" className="img-cards" />
             <Card.Body className="cards-body">
               <Card.Title className="c-title">{card.name}</Card.Title>
               <Card.Text className="c-descri">{card.description}</Card.Text>

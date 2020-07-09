@@ -1,0 +1,58 @@
+.cntr-prvt-zone {
+    display        : flex;
+    justify-content: space-between;
+    flex-direction : row;
+    flex-wrap      : wrap;
+}
+
+.cntr-perfil {
+    display       : flex;
+    flex-direction: column;
+    border        : 1px solid red;
+    margin        : 50px;
+    width         : 400px;
+    height        : 500px;
+    text-align    : center;
+    padding       : 20px;
+}
+
+.cntr-If-Iem {
+    border        : 1px solid black;
+    display       : flex;
+    text-align    : left;
+    flex-direction: column;
+    padding       : 10px;
+    margin-top    : 50px;
+}
+
+.I-face {
+    color: rgb(128, 0, 0)
+}
+
+.I-email {
+    margin-top: 20px;
+    color     : white;
+}
+
+.btn-dlt {
+    margin-top: 10px;
+}
+
+.btn-pass {
+    margin-top: 100px;
+}
+
+.I-profile {
+    color    : blue;
+    font-size: 50px;
+}
+
+
+.cntr-btn-prvt {
+    border    : 1px solid blue;
+    margin    : 50px;
+    width     : 400px;
+    height    : 500px;
+    text-align: center;
+    padding   : 20px;
+}

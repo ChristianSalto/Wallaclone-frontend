@@ -5,7 +5,8 @@ import { fetchAds } from "../../store/actions";
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    loadAds: (filter, sort) => dispatch(fetchAds(filter, sort)),
+    loadAds: (filter, date) =>
+      dispatch(fetchAds(filter, date)),
   };
 }
 

@@ -5,11 +5,12 @@
 }
 
 .btn-recoverpass {
-    margin-top : 45px;
+    margin-top : 30px;
     margin-left: -350px;
 }
 
 .inp-recoverpass {
+    margin-top   : 16px;
     border-radius: 10px;
     border       : 1px solid rgb(44, 43, 43);
     background   : gray;

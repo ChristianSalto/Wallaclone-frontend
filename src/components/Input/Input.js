@@ -6,7 +6,7 @@ const Input = ({ component: Component = "input", ...props }) => {
   return (
     <Component
       placeholder={props.placeholder ? props.placeholder : props.name}
-      required
+      required={props.name === "name" ? false : true}
       {...props}
       onChange={handleChange}
       value={value[props.name]}

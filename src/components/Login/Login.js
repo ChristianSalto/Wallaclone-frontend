@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
-import { Button } from "@material-ui/core";
 import "./login.css";
+import { Button } from "@material-ui/core";
+import Icon from "@material-ui/core/Icon";
 
 export function Login(props) {
   const [msj, setMsj] = useState("");
@@ -23,7 +24,10 @@ export function Login(props) {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container-L">
+      <div>
+        <h1 className="title">WALLACL0NE</h1>
+      </div>
       <Form
         className="form-log"
         onSubmit={handleLogin}
@@ -42,6 +46,7 @@ export function Login(props) {
         </Link>
         <div className="div-lost-pass">
           <Link
+            className="link-lost-pass"
             to={{
               pathname: "/recoverPass",
             }}
@@ -51,6 +56,9 @@ export function Login(props) {
         </div>
       </Form>
       <h3 className="msj-log">{msj}</h3>
+      <Link to="/">
+        <Icon className="home">home</Icon>
+      </Link>
     </div>
   );
 }

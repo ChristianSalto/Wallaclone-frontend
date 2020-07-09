@@ -1,5 +1,9 @@
 import * as TYPES from "./types";
 
+export const clearSession = () => ({
+  type: TYPES.CLEAR_SESSION,
+});
+
 export const fetchRequest = () => ({
   type: TYPES.FETCH_REQUEST,
 });
@@ -97,16 +101,31 @@ export const fetchNewPass = (password) => async (
   }
 };
 
-export const fetchAds = (filter, sort) => async (
+export const fetchAds = (filter, date) => async (
   dispatch,
   getState,
   { Api, history }
 ) => {
   dispatch(fetchRequest());
   try {
-    const data = await Api.getAds(filter, sort);
+    const data = await Api.getAds(filter, date);
     dispatch(fetchGetAds(data));
     return data;
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const fetchAdsById = (id) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.getAdsById(id);
+    dispatch(fetchGetAds(data));
+    history.push(`/details/${data.ads[0].name}`);
   } catch (error) {
     dispatch(fetchFailure(error));
   }

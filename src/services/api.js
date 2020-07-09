@@ -6,8 +6,14 @@ const URL = "http://localhost:3000/";
 //   },
 // };
 
-export const getAds = (filter, sort) => {
-  return fetch(`${URL}adsview?name=${filter}&sort=${sort}`)
+export const getAds = (filter, date) => {
+  return fetch(`${URL}adsview?params=${JSON.stringify(filter)}&sort=${date}`)
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const getAdsById = (id) => {
+  return fetch(`${URL}details?id=${id}`)
     .then((res) => res.json())
     .catch((err) => err);
 };

@@ -17,7 +17,13 @@ export function user(state = initialState.user, action) {
         user: {
           username: action.data.username,
           email: action.data.email,
+          token: action.data.token,
         },
+      };
+
+    case TYPES.CLEAR_SESSION:
+      return {
+        user: null,
       };
 
     default:
@@ -32,6 +38,7 @@ export function adverts(state = initialState.adverts, action) {
         ...state,
         adverts: action.data.ads,
       };
+
     default:
       return state;
   }

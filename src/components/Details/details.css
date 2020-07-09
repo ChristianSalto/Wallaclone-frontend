@@ -1,0 +1,25 @@
+.container-details {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    justify-content: center;
+}
+
+.container-rs {
+    text-align: center;
+    padding   : 5px;
+}
+
+.share {
+    font-family   : fantasy;
+    margin-right  : 20px;
+    vertical-align: super;
+}
+
+.cntr-fbk-twr {
+    outline: none;
+}
+
+.facebook {
+    margin-right: 5px;
+}
