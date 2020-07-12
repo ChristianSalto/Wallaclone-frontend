@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@material-ui/core";
 import "./listMyAds.css";
 
-
 const ListMyAds = (props) => {
   const { getMyAds, getMyUser } = props;
   let [myAds, setMyAds] = useState([]);
   let [msjAds, setMsj] = useState("");
-
 
   useEffect(() => {
     const { user } = getMyUser();
@@ -24,13 +22,18 @@ const ListMyAds = (props) => {
     <div>
       <ul>
         <div className="cntr-myAds">
-          {myAds.map((item) => (
-            <div key={item._id}>
-              <li>{item.name}</li>
+          {myAds.map((ads) => (
+            <div key={ads._id}>
+              <li>{ads.name}</li>
               <Button
                 variant="contained"
                 className="btn-edit"
-                onClick={() => props.history.push("/editads")}
+                onClick={() =>
+                  props.history.push({
+                    pathname: `/editads/${ads._id}`,
+                    ads: { ads },
+                  })
+                }
               >
                 Edit
               </Button>

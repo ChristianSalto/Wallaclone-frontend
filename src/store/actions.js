@@ -128,7 +128,7 @@ export const fetchAdsById = (id) => async (
   try {
     const data = await Api.getAdsById(id);
     dispatch(fetchSuccessAds(data));
-    history.push(`/details/${data.ads[0].name}`);
+    history.push(`/details/${data.result[0].name}`);
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -189,14 +189,16 @@ export const fetchGetMyAds = (username, token) => async (
   }
 };
 
-export const actEditAds = (id) => async (
+export const actEditAds = (id, token, params) => async (
   dispatch,
   getState,
   { Api, history }
 ) => {
   dispatch(fetchRequest());
   try {
-    const data = await Api.putEditAds(id);
-    console.log(data);
-  } catch (error) {}
+    const data = await Api.putAds(id, token, params);
+    dispatch(fetchSuccessAds(data));
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
 };

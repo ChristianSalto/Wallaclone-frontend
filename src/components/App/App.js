@@ -24,7 +24,7 @@ class App extends Component {
         />
         <Route path="/details" render={(props) => <Details {...props} />} />
         <PrivateRoute
-          path="/editads"
+          path="/editads/:id"
           component={(props) => <FormAds {...props} />}
         />
         <PrivateRoute

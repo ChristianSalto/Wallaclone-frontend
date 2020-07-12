@@ -85,6 +85,21 @@ export const putUser = (id, token, params) => {
     .catch((err) => err);
 };
 
+export const putAds = (id, token, params) => {
+  const data = {
+    id,
+    token,
+    params,
+  };
+  return fetch(`${URL}privatezone/editads`, {
+    headers,
+    method: "PUT",
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
 export const postRecoverPass = (email) => {
   const data = {
     email,

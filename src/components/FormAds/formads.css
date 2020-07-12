@@ -1,0 +1,27 @@
+.form-edit-ads {
+    display       : flex;
+    flex-direction: column;
+    padding       : 20px;
+    margin        : 10px;
+}
+
+.header-form-edit {
+    text-align: center;
+}
+
+.MuiInputBase-input {
+    margin: 10px;
+}
+
+.form-grup {
+    margin-top: 20px;
+}
+
+.btn-edit-form {
+    margin-top: 30px;
+}
+
+.btn-edit-form:hover {
+
+    background-color: aliceblue;
+}
