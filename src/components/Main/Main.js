@@ -50,11 +50,11 @@ export default function Main(props) {
 
   useEffect(() => {
     const get = async () => {
-      const { ads, msj } = await loadAds(
+      const { result, msj } = await loadAds(
         { name: "", tags: "", price: "" },
         date
       );
-      setAds(ads);
+      setAds(result);
       setMsj(msj);
     };
     get();

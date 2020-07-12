@@ -8,7 +8,7 @@ import Icon from "@material-ui/core/Icon";
 import "./register.css";
 
 const Register = (props) => {
-  const { history, registerUser, registerNavigate } = props;
+  const { history, registerUser, registerNavigate, getUi } = props;
   const [msj, setMsj] = useState("");
 
   const handeleRegister = async (event) => {
@@ -20,11 +20,15 @@ const Register = (props) => {
       password: password,
     };
 
-    const { msj, success } = await registerUser(user);
-    setMsj(msj);
+    console.log("1", props);
+    const { ui } = await registerUser(user);
+    console.log("5-props", getUi());
+    //console.log(ui);
+    // console.log("getUi", uis());
+    setMsj(ui.msj);
     setTimeout(() => {
       setMsj("");
-      success ? registerNavigate() : history.push("/register");
+      ui.isFetching ? registerNavigate() : history.push("/register");
     }, 3000);
   };
 

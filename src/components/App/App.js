@@ -7,6 +7,8 @@ import RecoverPass from "../RecoverPass";
 import NewPass from "../newPass";
 import Privatezone from "../Privatezone";
 import Details from "../Details";
+import ListMyAds from "../ListMyAds";
+import FormAds from "../FormAds";
 import PrivateRoute from "../../privateRouter/PrivateRouter";
 
 class App extends Component {
@@ -22,12 +24,20 @@ class App extends Component {
         />
         <Route path="/details" render={(props) => <Details {...props} />} />
         <PrivateRoute
+          path="/editads"
+          component={(props) => <FormAds {...props} />}
+        />
+        <PrivateRoute
           path="/newpass"
           component={(props) => <NewPass {...props} />}
         />
         <PrivateRoute
           path="/privatezone"
           component={(props) => <Privatezone {...props} />}
+        />
+        <PrivateRoute
+          path="/listmyads"
+          component={(props) => <ListMyAds {...props} />}
         />
       </Switch>
     );

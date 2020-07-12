@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Main from "./Main";
 import { fetchAds } from "../../store/actions";
 
+
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     loadAds: (filter, date) =>

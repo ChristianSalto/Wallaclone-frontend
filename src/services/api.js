@@ -16,6 +16,12 @@ export const getAdsById = (id) => {
     .catch((err) => err);
 };
 
+export const getMyAds = (username, token) => {
+  return fetch(`${URL}privatezone?autor=${username}&token=${token}`)
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
 export const registerUser = (data) => {
   return fetch(`${URL}register`, {
     headers: {

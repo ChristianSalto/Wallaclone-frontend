@@ -19,7 +19,7 @@ export function Login(props) {
   useEffect(() => {
     const timeId = setInterval(() => {
       setMsj("");
-    }, 3000);
+    }, 5000);
     return () => clearInterval(timeId);
   }, []);
 

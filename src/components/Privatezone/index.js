@@ -1,7 +1,11 @@
 import { connect } from "react-redux";
 
 import Privatezone from "./Privatezone";
-import { fetchDeleteUser, fetchPutUser } from "../../store/actions";
+import {
+  fetchDeleteUser,
+  fetchPutUser,
+  clearSession,
+} from "../../store/actions";
 import { getUser } from "../../store/selectors";
 
 function mapStateToProps(state, ownProps) {
@@ -14,6 +18,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     deleteUser: (id, token) => dispatch(fetchDeleteUser(id, token)),
     putUser: (id, token, params) => dispatch(fetchPutUser(id, token, params)),
+    clearCookies: () => dispatch(clearSession()),
   };
 }
 

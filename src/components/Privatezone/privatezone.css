@@ -16,6 +16,11 @@
     padding       : 20px;
 }
 
+.I-profile {
+    color    : blue;
+    font-size: 50px;
+}
+
 .cntr-If-Iem {
     border        : 1px solid black;
     display       : flex;
@@ -68,21 +73,32 @@
     margin-top: 10px;
 }
 
-.btn-pass {
-    margin-top: 50px;
+.s-upd {
+    margin-left: 5px;
 }
 
-.I-profile {
-    color    : blue;
-    font-size: 50px;
+.s-delete {
+    margin-left : 5px;
+    margin-right: 8px;
+}
+
+.btn-log-out {
+    margin-top: 50px;
+    padding   : 5px;
+}
+
+.s-logout {
+    margin-left: 9px;
 }
 
 
 .cntr-btn-prvt {
-    border    : 1px solid blue;
-    margin    : 50px;
-    width     : 400px;
-    height    : 500px;
-    text-align: center;
-    padding   : 20px;
+    border        : 1px solid blue;
+    display       : flex;
+    flex-direction: column;
+    margin        : 50px;
+    width         : flex;
+    height        : flex;
+    text-align    : center;
+    padding       : 20px;
 }

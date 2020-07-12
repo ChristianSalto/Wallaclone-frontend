@@ -27,7 +27,10 @@ const Cards = (props) => {
                 <span className="sp-autor">{card.autor}</span>
               </Card.Text>
               <Card.Text className="c-date">
-                <Icon>update</Icon> <span className="sp-date">{card.date}</span>
+                <Icon>update</Icon>{" "}
+                <span className="sp-date">
+                  {new Date(card.date).toLocaleDateString()}
+                </span>
               </Card.Text>
               <div className="container-sts-pri">
                 <div className="container-price">

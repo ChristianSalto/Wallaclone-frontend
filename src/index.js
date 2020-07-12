@@ -13,7 +13,9 @@ import { ConnectedRouter as Router } from "connected-react-router";
 export const history = createBrowserHistory();
 
 let user = JSON.parse(localStorage.getItem("user"));
-
+// if (!user) {
+//   user = [];
+// }
 const store = configureStore({ Api, history })({ user: { user } });
 
 ReactDOM.render(

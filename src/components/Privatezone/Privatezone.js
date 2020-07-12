@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
+import { Link } from "react-router-dom";
 
 import { Button } from "@material-ui/core";
 import Icon from "@material-ui/core/Icon";
 import "./privatezone.css";
 
 const Privatezone = (props) => {
-  const { getUser, deleteUser, putUser, history } = props;
+  const { getUser, deleteUser, putUser } = props;
   let [user, setUser] = useState({});
   let [idUser, setIdUser] = useState("");
   let [tokenUser, setTokenUser] = useState("");
@@ -15,24 +16,23 @@ const Privatezone = (props) => {
 
   const handleDeleteUser = (id, token) => {
     deleteUser(id, token);
+    localStorage.removeItem("user");
   };
 
   const handeleUpdate = async (params) => {
     const { ui } = await putUser(idUser, tokenUser, params);
     setMsj(ui.msj);
-    setInterval(() => {
+    setTimeout(() => {
       setMsj("");
-      // history.push("/");
     }, 5000);
   };
 
-  // useEffect(() => {
-  //   const timeId = setInterval(() => {
-  //     setMsj("");
-  //     history.push("/");
-  //   }, 5000);
-  //   return () => clearInterval(timeId);
-  // }, [history]);
+ 
+
+  const clearCookies = () => {
+    localStorage.removeItem("user");
+    props.clearCookies();
+  };
 
   useEffect(() => {
     const member = () => {
@@ -64,18 +64,29 @@ const Privatezone = (props) => {
         <Form
           className="form-upd"
           onSubmit={handeleUpdate}
-          initialValue={{ username: "", email: "" }}
+          initialValue={{ username: "", email: "", password: "" }}
         >
           <Input name="username" type="text" className="inp-upd" />
           <Input name="email" type="email" className="inp-upd" />
-          <Button variant="contained" className="" type="submit">
-            Update
+          <Input name="password" type="password" className="inp-upd" />
+          <Button variant="contained" className="btn-upd" type="submit">
+            <Icon>update</Icon>
+            <span className="s-upd">Update</span>
           </Button>
         </Form>
         <h3 className="">{msj}</h3>
-        <Button variant="contained" color="primary" className="btn-pass">
+        {/* <Button variant="contained" color="primary" className="btn-pass">
           <Icon>lock</Icon>
           Change Password
+        </Button> */}
+        <Button
+          variant="contained"
+          color="primary"
+          className="btn-log-out"
+          onClick={clearCookies}
+        >
+          <span className="material-icons">exit_to_app</span>
+          <span className="s-logout">Log out</span>
         </Button>
         <Button
           variant="contained"
@@ -84,11 +95,13 @@ const Privatezone = (props) => {
           onClick={() => handleDeleteUser(idUser, tokenUser)}
         >
           <Icon>delete</Icon>
-          Delete
+          <span className="s-delete">Delete</span>
         </Button>
       </div>
       <div className="cntr-btn-prvt">
-        <Button>Boton 1</Button>
+        <Link to="/listmyads">
+          <Button>All my Adverts</Button>
+        </Link>
         <Button>Boton 2</Button>
         <Button>Boton 3</Button>
       </div>

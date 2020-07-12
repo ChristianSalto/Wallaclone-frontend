@@ -11,15 +11,16 @@ const initialState = {
 
 export function user(state = initialState.user, action) {
   switch (action.type) {
-    case TYPES.FETCH_SUCCESS:
+    case TYPES.FETCH_SUCCESS_USER:
       return {
         ...state,
-        user: {
-          username: action.data.username,
-          email: action.data.email,
-          token: action.data.token,
-          id: action.data.id,
-        },
+        user: action.data.result ? action.data.result : state.user,
+        // user: {
+        //   username: action.data.username,
+        //   email: action.data.email,
+        //   token: action.data.token ? action.data.token : state.user.token,
+        //   id: action.data.id ? action.data.id : state.user.id,
+        // },
       };
 
     case TYPES.CLEAR_SESSION:
@@ -34,10 +35,10 @@ export function user(state = initialState.user, action) {
 
 export function adverts(state = initialState.adverts, action) {
   switch (action.type) {
-    case TYPES.GET_ADS:
+    case TYPES.FETCH_SUCCESS_ADS:
       return {
         ...state,
-        adverts: action.data.ads,
+        adverts: action.data.result,
       };
 
     default:
@@ -61,7 +62,14 @@ export function ui(state = initialState.ui, action) {
         msj: action.error,
       };
 
-    case TYPES.FETCH_SUCCESS:
+    case TYPES.FETCH_SUCCESS_USER:
+      return {
+        ...state,
+        isFetching: action.data.success,
+        msj: action.data.msj,
+      };
+
+    case TYPES.FETCH_SUCCESS_ADS:
       return {
         ...state,
         isFetching: action.data.success,

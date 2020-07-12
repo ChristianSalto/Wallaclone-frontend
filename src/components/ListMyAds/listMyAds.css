@@ -1,0 +1,24 @@
+.cntr-myAds {
+    display       : flex;
+    flex-direction: column;
+    padding       : 10px;
+    border        : 1px solid black;
+}
+
+.cntr-myAds>div {
+    display       : flex;
+    flex-direction: row;
+}
+
+.cntr-myAds>div>li {
+    margin     : 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size  : 20px;
+}
+
+.btn-edit {
+    width      : 60px;
+    height     : 15px;
+    margin-top : 10px;
+    margin-left: 20px;
+}

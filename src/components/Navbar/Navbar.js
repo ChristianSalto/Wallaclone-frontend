@@ -6,10 +6,10 @@ import "./navbar.css";
 const Navbar = (props) => {
   let [status, setStatus] = useState(false);
 
-  const clearCookies = () => {
-    localStorage.removeItem("user");
-    props.clearCookies();
-  };
+  // const clearCookies = () => {
+  //   localStorage.removeItem("user");
+  //   props.clearCookies();
+  // };
 
   return (
     <Fragment>
@@ -48,11 +48,11 @@ const Navbar = (props) => {
                   Log in
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/" className="nav-menu-li" onClick={clearCookies}>
                   Log out
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

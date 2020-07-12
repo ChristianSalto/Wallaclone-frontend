@@ -13,13 +13,13 @@ export const fetchFailure = (error) => ({
   error,
 });
 
-export const fetchSuccess = (data) => ({
-  type: TYPES.FETCH_SUCCESS,
+export const fetchSuccessUser = (data) => ({
+  type: TYPES.FETCH_SUCCESS_USER,
   data,
 });
 
-export const fetchGetAds = (data) => ({
-  type: TYPES.GET_ADS,
+export const fetchSuccessAds = (data) => ({
+  type: TYPES.FETCH_SUCCESS_ADS,
   data,
 });
 
@@ -27,8 +27,9 @@ export const registerUser = (user) => async (dispatch, getState, { Api }) => {
   dispatch(fetchRequest());
   try {
     const data = await Api.registerUser(user);
-    dispatch(fetchSuccess(data));
-    return data;
+    dispatch(fetchSuccessUser(data));
+    const { ui } = getState();
+    return ui;
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -42,22 +43,23 @@ export const loadLogin = (username, password) => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.loginUser(username, password);
-    if (data.token) {
+    if (data.result.token) {
+      const { result } = data;
       localStorage.setItem(
         "user",
         JSON.stringify({
-          username: data.username,
-          email: data.email,
-          token: data.token,
-          id: data.id,
+          username: result.username,
+          email: result.email,
+          token: result.token,
+          id: result.id,
         })
       );
     } else {
-      history.push(data.path);
-      dispatch(fetchSuccess(data));
+      history.push("/login");
+      dispatch(fetchSuccessUser(data));
       return getState();
     }
-    dispatch(fetchSuccess(data));
+    dispatch(fetchSuccessUser(data));
     history.push("/privatezone");
     return getState();
   } catch (error) {
@@ -95,7 +97,7 @@ export const fetchNewPass = (password) => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.putNewPass(password);
-    dispatch(fetchSuccess(data));
+    dispatch(fetchSuccessUser(data));
     return getState();
   } catch (error) {
     dispatch(fetchFailure(error));
@@ -110,7 +112,7 @@ export const fetchAds = (filter, date) => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.getAds(filter, date);
-    dispatch(fetchGetAds(data));
+    dispatch(fetchSuccessAds(data));
     return data;
   } catch (error) {
     dispatch(fetchFailure(error));
@@ -125,7 +127,7 @@ export const fetchAdsById = (id) => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.getAdsById(id);
-    dispatch(fetchGetAds(data));
+    dispatch(fetchSuccessAds(data));
     history.push(`/details/${data.ads[0].name}`);
   } catch (error) {
     dispatch(fetchFailure(error));
@@ -162,10 +164,39 @@ export const fetchPutUser = (id, token, params) => async (
     //     email: data.email,
     //   })
     // );
-    dispatch(fetchSuccess(data));
-    localStorage.removeItem("user");
+    if (data.success) {
+      localStorage.removeItem("user");
+    }
+    dispatch(fetchSuccessUser(data));
     return getState();
   } catch (error) {
     dispatch(fetchFailure(error));
   }
+};
+
+export const fetchGetMyAds = (username, token) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.getMyAds(username, token);
+    dispatch(fetchSuccessAds(data));
+    return data;
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actEditAds = (id) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.putEditAds(id);
+    console.log(data);
+  } catch (error) {}
 };
