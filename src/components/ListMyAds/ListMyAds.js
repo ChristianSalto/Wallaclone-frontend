@@ -3,13 +3,17 @@ import { Button } from "@material-ui/core";
 import "./listMyAds.css";
 
 const ListMyAds = (props) => {
-  const { getMyAds, getMyUser } = props;
+  const { getMyAds, getMyUser, deleteAds } = props;
   let [myAds, setMyAds] = useState([]);
   let [msjAds, setMsj] = useState("");
+  const { user } = getMyUser();
+  const { username, token } = user;
+
+  const handleDeleteAds = (id, token) => {
+    deleteAds(id, token);
+  };
 
   useEffect(() => {
-    const { user } = getMyUser();
-    const { username, token } = user;
     const getAdverts = async () => {
       const { result, msj } = await getMyAds(username, token);
       setMyAds((myAds = result));
@@ -36,6 +40,13 @@ const ListMyAds = (props) => {
                 }
               >
                 Edit
+              </Button>
+              <Button
+                variant="contained"
+                className="btn-delete"
+                onClick={() => handleDeleteAds(ads._id, token)}
+              >
+                Delete
               </Button>
             </div>
           ))}

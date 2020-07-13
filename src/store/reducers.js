@@ -25,6 +25,7 @@ export function user(state = initialState.user, action) {
 
     case TYPES.CLEAR_SESSION:
       return {
+        ...state,
         user: null,
       };
 
@@ -38,7 +39,7 @@ export function adverts(state = initialState.adverts, action) {
     case TYPES.FETCH_SUCCESS_ADS:
       return {
         ...state,
-        adverts: action.data.result,
+        adverts: action.data.result ? action.data.result : state.adverts,
       };
 
     default:

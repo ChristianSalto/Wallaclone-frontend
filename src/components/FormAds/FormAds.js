@@ -19,22 +19,11 @@ const FormAds = (props) => {
 
   const handleEditAds = (event) => {
     event.preventDefault();
-    const { editAds } = props;
-    const { date, description, price, status, checkboxing } = event.target;
-    const tags = [];
-    checkboxing.forEach((element) => {
-      if (element.checked) {
-        tags.push(element.value);
-      }
-    });
-    const params = {
-      date: date.value,
-      description: description.value,
-      price: price.value,
-      status: status.value,
-      tags: tags,
-    };
-    editAds(id, user.token, params);
+    const { editAds, createAds } = props;
+    const formData = new FormData(event.currentTarget);
+    typeof id !== "undefined"
+      ? editAds(formData, user.token, id)
+      : createAds(formData, user.token);
   };
 
   return (
@@ -44,58 +33,68 @@ const FormAds = (props) => {
       ) : (
         <form onSubmit={handleEditAds} className="form-edit-ads">
           <header className="header-form-edit">
-            <h1>{ads.autor}</h1>
+            <h1>{user.username}</h1>
           </header>
           <Input
             placeholder="autor"
             type="text"
             name="autor"
-            value={ads.autor}
+            value={user.username}
           />
-          <Input placeholder="date" type="date" name="date" />
+          <Input
+            placeholder="name"
+            type="text"
+            name="name"
+            defaultValue={ads.name}
+            required
+          />
+          <Input placeholder="date" type="date" name="date" required />
           <Input
             placeholder="description"
             type="textarea"
             name="description"
             defaultValue={ads.description}
+            required
           />
           <Input
             placeholder="price"
             type="number"
             name="price"
             defaultValue={ads.price}
+            required
           />
           <Input
             placeholder="status"
             type="text"
             name="status"
             defaultValue={ads.status}
+            required
           />
           <Input type="file" name="img" />
           <FormGroup aria-label="position" row className="form-grup">
             <FormControlLabel
-              name="checkboxing"
+              name="tags"
               value="work"
               control={<Checkbox color="primary" />}
               label="work"
               labelPlacement="start"
             />
             <FormControlLabel
-              name="checkboxing"
+              name="tags"
               value="mobile"
               control={<Checkbox color="primary" />}
               label="mobile"
               labelPlacement="start"
             />
             <FormControlLabel
-              name="checkboxing"
+              name="tags"
               value="lifestyle"
               control={<Checkbox color="primary" />}
               label="lifestyle"
               labelPlacement="start"
             />
             <FormControlLabel
-              name="checkboxing"
+              name="tags"
               value="motor"
               control={<Checkbox color="primary" />}
               label="motor"

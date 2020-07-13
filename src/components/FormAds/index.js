@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import FormAds from "./FormAds";
 
-import { actEditAds } from "../../store/actions";
+import { actEditAds, actCreatetAds } from "../../store/actions";
 import { getUser } from "../../store/selectors";
 
 function mapStateToProps(state, ownProps) {
@@ -13,7 +13,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    editAds: (id, token, params) => dispatch(actEditAds(id, token, params)),
+    editAds: (formData, token, id) => dispatch(actEditAds(formData, token, id)),
+    createAds: (formData, token) => dispatch(actCreatetAds(formData, token)),
   };
 }
 

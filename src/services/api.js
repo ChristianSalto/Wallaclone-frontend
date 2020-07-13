@@ -85,15 +85,48 @@ export const putUser = (id, token, params) => {
     .catch((err) => err);
 };
 
-export const putAds = (id, token, params) => {
+// export const putAds = (id, token, params, file) => {
+//   const data = {
+//     id,
+//     token,
+//     params,
+//     file,
+//   };
+//   return fetch(`${URL}privatezone/editads`, {
+//     headers,
+//     method: "PUT",
+//     body: JSON.stringify(data),
+//   })
+//     .then((res) => res.json())
+//     .catch((err) => err);
+// };
+
+export const putAds = (formData, token, id) => {
+  return fetch(`${URL}privatezone/editads?token=${token}&id=${id}`, {
+    method: "PUT",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const postAds = (formData, token) => {
+  return fetch(`${URL}privatezone/createads?token=${token}`, {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const deleteAds = (id, token) => {
   const data = {
     id,
     token,
-    params,
   };
-  return fetch(`${URL}privatezone/editads`, {
+  return fetch(`${URL}privatezone/deleteads`, {
     headers,
-    method: "PUT",
+    method: "DELETE",
     body: JSON.stringify(data),
   })
     .then((res) => res.json())

@@ -27,8 +27,6 @@ const Privatezone = (props) => {
     }, 5000);
   };
 
- 
-
   const clearCookies = () => {
     localStorage.removeItem("user");
     props.clearCookies();
@@ -100,9 +98,16 @@ const Privatezone = (props) => {
       </div>
       <div className="cntr-btn-prvt">
         <Link to="/listmyads">
-          <Button>All my Adverts</Button>
+          <Button>All my adverts</Button>
         </Link>
-        <Button>Boton 2</Button>
+        <Link
+          to={{
+            pathname: "/createads",
+            ads: { ads: {} },
+          }}
+        >
+          <Button>Create my adverts</Button>
+        </Link>
         <Button>Boton 3</Button>
       </div>
     </div>

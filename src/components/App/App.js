@@ -28,6 +28,10 @@ class App extends Component {
           component={(props) => <FormAds {...props} />}
         />
         <PrivateRoute
+          path="/createads"
+          component={(props) => <FormAds {...props} />}
+        />
+        <PrivateRoute
           path="/newpass"
           component={(props) => <NewPass {...props} />}
         />

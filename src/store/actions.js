@@ -142,8 +142,9 @@ export const fetchDeleteUser = (id, token) => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.deleteUser(id, token);
+    dispatch(fetchSuccessUser(data));
     dispatch(clearSession());
-    history.push(data.path);
+    history.push("/");
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -157,13 +158,6 @@ export const fetchPutUser = (id, token, params) => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.putUser(id, token, params);
-    // localStorage.setItem(
-    //   "user",
-    //   JSON.stringify({
-    //     username: data.username,
-    //     email: data.email,
-    //   })
-    // );
     if (data.success) {
       localStorage.removeItem("user");
     }
@@ -189,15 +183,46 @@ export const fetchGetMyAds = (username, token) => async (
   }
 };
 
-export const actEditAds = (id, token, params) => async (
+export const actEditAds = (formData, token, id) => async (
   dispatch,
   getState,
   { Api, history }
 ) => {
   dispatch(fetchRequest());
   try {
-    const data = await Api.putAds(id, token, params);
+    const data = await Api.putAds(formData, token, id);
     dispatch(fetchSuccessAds(data));
+    history.push("/privatezone");
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actCreatetAds = (formData, token) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.postAds(formData, token);
+    dispatch(fetchSuccessAds(data));
+    history.push("/privatezone");
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actDeleteAds = (id, token) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.deleteAds(id, token);
+    dispatch(fetchSuccessAds(data));
+    history.push("/listmyads");
   } catch (error) {
     dispatch(fetchFailure(error));
   }

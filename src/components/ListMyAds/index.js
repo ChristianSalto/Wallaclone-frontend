@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import ListMyAds from "./ListMyAds";
 import { getUser } from "../../store/selectors";
-import { fetchGetMyAds } from "../../store/actions";
+import { fetchGetMyAds, actDeleteAds } from "../../store/actions";
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -13,6 +13,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     getMyAds: (username, token) => dispatch(fetchGetMyAds(username, token)),
+    deleteAds: (id, token) => dispatch(actDeleteAds(id, token)),
   };
 }
 

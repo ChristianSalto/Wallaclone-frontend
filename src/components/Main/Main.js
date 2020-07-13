@@ -29,8 +29,8 @@ export default function Main(props) {
     const name = event.name;
     setName(name);
     setFilter((filter = { name, tags, price }));
-    const { ads, msj } = await loadAds(filter, date);
-    setAds(ads);
+    const { result, msj } = await loadAds(filter, date);
+    setAds(result);
     setMsj(msj);
   };
 

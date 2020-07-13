@@ -6,6 +6,7 @@ import "./cards.css";
 
 const Cards = (props) => {
   const { ads, getAdsById } = props;
+  const URL = `http://localhost:3000/img/`;
   const handleDetails = (id) => {
     getAdsById(id);
   };
@@ -15,7 +16,11 @@ const Cards = (props) => {
       {ads.map((card) => (
         <div key={card._id}>
           <Card className="cards" onClick={() => handleDetails(card._id)}>
-            <Card.Img variant="top" src="/img/ps5.jpg" className="img-cards" />
+            <Card.Img
+              variant="top"
+              src={URL + card.img}
+              className="img-cards"
+            />
             <Card.Body className="cards-body">
               <Card.Title className="c-title">{card.name}</Card.Title>
               <Card.Text className="c-descri">{card.description}</Card.Text>
