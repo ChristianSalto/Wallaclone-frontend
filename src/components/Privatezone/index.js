@@ -6,17 +6,18 @@ import {
   fetchPutUser,
   clearSession,
 } from "../../store/actions";
-import { getUser } from "../../store/selectors";
+import { getUser, getUi } from "../../store/selectors";
 
 function mapStateToProps(state, ownProps) {
   return {
     getUser: getUser(state),
+    getUi: getUi(state),
   };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    deleteUser: (id, token) => dispatch(fetchDeleteUser(id, token)),
+    deleteUser: (id, token, user) => dispatch(fetchDeleteUser(id, token, user)),
     putUser: (id, token, params) => dispatch(fetchPutUser(id, token, params)),
     clearCookies: () => dispatch(clearSession()),
   };

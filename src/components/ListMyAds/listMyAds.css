@@ -1,31 +1,83 @@
+.cntr-myAds-list-user {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+}
+
 .cntr-myAds {
     display       : flex;
     flex-direction: column;
     padding       : 10px;
-    border        : 1px solid black;
+    margin        : 50px;
+    width         : 90%;
+}
+
+.header-list {
+    text-align: center;
+    margin-top: 50px;
 }
 
 .cntr-myAds>div {
-    display       : flex;
-    flex-direction: row;
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
 }
 
-.cntr-myAds>div>li {
+.cntr-myAds>div>h4 {
     margin     : 5px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size  : 20px;
+    margin-left: 100px;
+}
+
+.btn-v {
+    margin-left: 20px;
 }
 
 .btn-edit {
-    width      : 60px;
-    height     : 15px;
-    margin-top : 10px;
-    margin-left: 20px;
+    height: 25px;
 }
 
 .btn-delete {
-    width      : 60px;
-    height     : 15px;
-    margin-top : 10px;
-    margin-left: 20px;
+    height     : 25px;
+    margin-left: auto;
+}
+
+.icon-edit {
+    color: blue;
+}
+
+.icon-delete {
+    color: red;
+}
+
+
+.cntr-back {
+    margin-top: 100px;
+    text-align: center;
+}
+
+
+.cntr-msj {
+    color     : red;
+    text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .cntr-myAds>div>h4 {
+        font-size: 15px;
+    }
+
+    .icon-edit {
+        font-size: 20px;
+    }
+
+    .icon-delete {
+        font-size: 20px;
+    }
+
+
+    .header-list {
+        font-size: 10px;
+    }
 }

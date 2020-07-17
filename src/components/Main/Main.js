@@ -23,12 +23,13 @@ export default function Main(props) {
   let [tags, setTags] = useState("");
   let [price, setPrice] = useState("");
   let [name, setName] = useState("");
-  let [filter, setFilter] = useState({ name, tags, price });
+  let [skip, setSkip] = useState(0);
+  let [filter, setFilter] = useState({ name, tags, price, skip });
 
   const handleFilter = async (event) => {
     const name = event.name;
     setName(name);
-    setFilter((filter = { name, tags, price }));
+    setFilter((filter = { name, tags, price, skip }));
     const { result, msj } = await loadAds(filter, date);
     setAds(result);
     setMsj(msj);
@@ -51,14 +52,18 @@ export default function Main(props) {
   useEffect(() => {
     const get = async () => {
       const { result, msj } = await loadAds(
-        { name: "", tags: "", price: "" },
+        { name: "", tags: "", price: "", skip },
         date
       );
       setAds(result);
       setMsj(msj);
     };
     get();
-  }, [loadAds, date]);
+  }, [loadAds, date, skip]);
+
+  // useEffect(() => {
+  //   getSkip(count);
+  // }, [count, getSkip]);
 
   return (
     <div className="grid-container">
@@ -89,12 +94,27 @@ export default function Main(props) {
               handleFilterTags={handleFilterTags}
               selectedValue={selectedValue}
             />
+            <Button className="btn-list-user" onClick={() => props.history.push("/listuser")}>
+              User list
+            </Button>
           </div>
         </Form>
         <div className="container-cards">
           {!ads ? <Load /> : <Cards ads={ads} />}
         </div>
         <h1 className="h1-main">{msj}</h1>
+        <div className="cntr-page">
+          <Button onClick={() => setSkip(skip - 1)}>
+            <h2>&#9668;</h2>
+          </Button>
+          <h2>{skip < 0 ? setSkip((skip = 0)) : skip}</h2>
+          <Button onClick={() => setSkip(skip + 1)}>
+            <h2>&#9658;</h2>
+          </Button>
+        </div>
+        {/* <div>
+          <Button>User list</Button>
+        </div> */}
       </main>
       <footer className="footer">
         <div className="cntr-footer">

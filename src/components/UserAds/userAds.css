@@ -1,0 +1,19 @@
+.cntr-user-ads {
+    display       : flex;
+    text-align    : center;
+    flex-direction: column;
+    margin-top    : 5%;
+}
+
+
+.cntr-cards-user {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    justify-content: center;
+    margin-top     : 10%;
+}
+
+.btn-user-ads {
+    margin-top: 20px;
+}

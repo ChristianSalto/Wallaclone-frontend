@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
 import { Link } from "react-router-dom";
@@ -8,19 +8,18 @@ import Icon from "@material-ui/core/Icon";
 import "./privatezone.css";
 
 const Privatezone = (props) => {
-  const { getUser, deleteUser, putUser } = props;
-  let [user, setUser] = useState({});
-  let [idUser, setIdUser] = useState("");
-  let [tokenUser, setTokenUser] = useState("");
+  const { getUi, getUser, deleteUser, putUser } = props;
+  const { user } = getUser;
   let [msj, setMsj] = useState("");
 
   const handleDeleteUser = (id, token) => {
-    deleteUser(id, token);
+    deleteUser(id, token, user.username);
     localStorage.removeItem("user");
   };
 
   const handeleUpdate = async (params) => {
-    const { ui } = await putUser(idUser, tokenUser, params);
+    const { ui } = await putUser(user.id, user.token, params);
+    console.log(getUi);
     setMsj(ui.msj);
     setTimeout(() => {
       setMsj("");
@@ -31,16 +30,6 @@ const Privatezone = (props) => {
     localStorage.removeItem("user");
     props.clearCookies();
   };
-
-  useEffect(() => {
-    const member = () => {
-      return getUser;
-    };
-    user = member();
-    setIdUser((idUser = user.user.id));
-    setTokenUser((tokenUser = user.user.token));
-    setUser((user = { username: user.user.username, email: user.user.email }));
-  }, [props]);
 
   return (
     <div className="cntr-prvt-zone">
@@ -62,7 +51,11 @@ const Privatezone = (props) => {
         <Form
           className="form-upd"
           onSubmit={handeleUpdate}
-          initialValue={{ username: "", email: "", password: "" }}
+          initialValue={{
+            username: user.username,
+            email: user.email,
+            password: "",
+          }}
         >
           <Input name="username" type="text" className="inp-upd" />
           <Input name="email" type="email" className="inp-upd" />
@@ -73,10 +66,6 @@ const Privatezone = (props) => {
           </Button>
         </Form>
         <h3 className="">{msj}</h3>
-        {/* <Button variant="contained" color="primary" className="btn-pass">
-          <Icon>lock</Icon>
-          Change Password
-        </Button> */}
         <Button
           variant="contained"
           color="primary"
@@ -90,25 +79,31 @@ const Privatezone = (props) => {
           variant="contained"
           color="secondary"
           className="btn-dlt"
-          onClick={() => handleDeleteUser(idUser, tokenUser)}
+          onClick={() => handleDeleteUser(user.id, user.token)}
         >
           <Icon>delete</Icon>
           <span className="s-delete">Delete</span>
         </Button>
       </div>
       <div className="cntr-btn-prvt">
-        <Link to="/listmyads">
-          <Button>All my adverts</Button>
+        <div className="cntr-title">
+          <h1 className="title-prvt">WALLACL0NE</h1>
+        </div>
+        <Link to="/listmyads" className="link-btns">
+          <Button className="btn-my-ads">All my adverts</Button>
         </Link>
         <Link
           to={{
             pathname: "/createads",
             ads: { ads: {} },
           }}
+          className="link-btns"
         >
-          <Button>Create my adverts</Button>
+          <Button className="btn-my-ads">Create my adverts</Button>
         </Link>
-        <Button>Boton 3</Button>
+        <Link to="/">
+          <Icon className="home">home</Icon>
+        </Link>
       </div>
     </div>
   );

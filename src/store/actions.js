@@ -134,14 +134,14 @@ export const fetchAdsById = (id) => async (
   }
 };
 
-export const fetchDeleteUser = (id, token) => async (
+export const fetchDeleteUser = (id, token, user) => async (
   dispatch,
   getState,
   { Api, history }
 ) => {
   dispatch(fetchRequest());
   try {
-    const data = await Api.deleteUser(id, token);
+    const data = await Api.deleteUser(id, token, user);
     dispatch(fetchSuccessUser(data));
     dispatch(clearSession());
     history.push("/");
@@ -223,6 +223,49 @@ export const actDeleteAds = (id, token) => async (
     const data = await Api.deleteAds(id, token);
     dispatch(fetchSuccessAds(data));
     history.push("/listmyads");
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actGetAllUsers = () => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.getAllUsers();
+    return data.result;
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actGetAdsUser = (user, date) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.getAllAdsUsers(user, date);
+    return data.result;
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actReserveAds = (ads, token, id) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  dispatch(fetchRequest());
+  try {
+    const data = await Api.putReserverAds(ads, token, id);
+    dispatch(fetchSuccessAds(data));
+    history.push("/privatezone");
   } catch (error) {
     dispatch(fetchFailure(error));
   }

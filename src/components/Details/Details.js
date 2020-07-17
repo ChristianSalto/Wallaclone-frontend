@@ -9,6 +9,8 @@ import {
 import Cards from "../Cards";
 import Load from "../Load";
 
+import { Button } from "@material-ui/core";
+
 import "./details.css";
 
 const Details = (props) => {
@@ -38,6 +40,13 @@ const Details = (props) => {
           </div>
         </Fragment>
       )}
+
+      <Button
+        onClick={() => props.history.push("/")}
+        className="btn-back-dtails"
+      >
+        <h1 className="h1-btn-back">&#9668;</h1>home
+      </Button>
     </div>
   );
 };

@@ -3,7 +3,7 @@
   justify-content  : center;
   align-items      : center;
   flex-direction   : column;
-  width            : 100%;
+  width            : flex;
   height           : 100%;
   background-image : url("/img/star_wars.png");
   background-repeat: no-repeat;
@@ -15,7 +15,7 @@
   src        : url("/font/Starjhol.ttf");
 }
 
-.title {
+.title-L {
   font-family: "Star Wars";
   color      : goldenrod;
   padding    : 10px;
@@ -90,7 +90,7 @@
   color: red;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
 
   .form-log {
     width: 300px;
@@ -112,6 +112,14 @@
   }
 
   .div-lost-pass {
-    margin: 30px;
+    margin: 20px;
+  }
+
+  .title-L {
+    font-size: 40px;
+  }
+
+  .link-lost-pass {
+    font-size: 15px;
   }
 }

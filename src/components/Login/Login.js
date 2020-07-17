@@ -26,7 +26,7 @@ export function Login(props) {
   return (
     <div className="container-L">
       <div>
-        <h1 className="title">WALLACL0NE</h1>
+        <h1 className="title-L">WALLACL0NE</h1>
       </div>
       <Form
         className="form-log"
@@ -57,7 +57,7 @@ export function Login(props) {
       </Form>
       <h3 className="msj-log">{msj}</h3>
       <Link to="/">
-        <Icon className="home">home</Icon>
+        <Icon className="home-r">home</Icon>
       </Link>
     </div>
   );

@@ -3,11 +3,9 @@ import { connect } from "react-redux";
 import Main from "./Main";
 import { fetchAds } from "../../store/actions";
 
-
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    loadAds: (filter, date) =>
-      dispatch(fetchAds(filter, date)),
+    loadAds: (filter, date) => dispatch(fetchAds(filter, date)),
   };
 }
 

@@ -4,6 +4,10 @@ const headers = {
   "Content-Type": "application/json",
 };
 
+// const headers = {
+//   "Content-Type": "application/x-www-form-urlencoded",
+// };
+
 export const getAds = (filter, date) => {
   return fetch(`${URL}adsview?params=${JSON.stringify(filter)}&sort=${date}`)
     .then((res) => res.json())
@@ -53,8 +57,9 @@ export const loginUser = (username, password) => {
     .catch((err) => err);
 };
 
-export const deleteUser = (id, token) => {
+export const deleteUser = (id, token, user) => {
   const data = {
+    user,
     id,
     token,
   };
@@ -85,26 +90,23 @@ export const putUser = (id, token, params) => {
     .catch((err) => err);
 };
 
-// export const putAds = (id, token, params, file) => {
-//   const data = {
-//     id,
-//     token,
-//     params,
-//     file,
-//   };
-//   return fetch(`${URL}privatezone/editads`, {
-//     headers,
-//     method: "PUT",
-//     body: JSON.stringify(data),
-//   })
-//     .then((res) => res.json())
-//     .catch((err) => err);
-// };
-
 export const putAds = (formData, token, id) => {
   return fetch(`${URL}privatezone/editads?token=${token}&id=${id}`, {
     method: "PUT",
     body: formData,
+  })
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const putReserverAds = (ads, token, id) => {
+  const data = {
+    ads,
+  };
+  return fetch(`${URL}privatezone/reserverads?token=${token}&id=${id}`, {
+    headers,
+    method: "PUT",
+    body: JSON.stringify(data),
   })
     .then((res) => res.json())
     .catch((err) => err);
@@ -163,6 +165,18 @@ export const putNewPass = (password) => {
     method: "PUT",
     body: JSON.stringify(data),
   })
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const getAllUsers = () => {
+  return fetch(`${URL}listusers`)
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const getAllAdsUsers = (user, date) => {
+  return fetch(`${URL}listusers/ads?autor=${user}&sort=${date}`)
     .then((res) => res.json())
     .catch((err) => err);
 };

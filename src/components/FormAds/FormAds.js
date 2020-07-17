@@ -16,10 +16,10 @@ const FormAds = (props) => {
     typeof props.location.ads !== "undefined" ? props.location.ads.ads : null;
   const { user } = props.getUser();
   const { id } = props.match.params;
+  const { editAds, createAds } = props;
 
   const handleEditAds = (event) => {
     event.preventDefault();
-    const { editAds, createAds } = props;
     const formData = new FormData(event.currentTarget);
     typeof id !== "undefined"
       ? editAds(formData, user.token, id)
@@ -106,6 +106,11 @@ const FormAds = (props) => {
           </Button>
         </form>
       )}
+      <div className="cntr-back-form">
+        <Button onClick={() => props.history.push("/privatezone")}>
+          <h1>&#9668;</h1>back
+        </Button>
+      </div>
     </>
   );
 };

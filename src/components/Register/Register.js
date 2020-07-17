@@ -53,7 +53,7 @@ const Register = (props) => {
         <h3 className="msj-re">{msj}</h3>
       </Form>
       <Link to="/">
-        <Icon className="home">home</Icon>
+        <Icon className="home-r">home</Icon>
       </Link>
     </div>
   );

@@ -8,6 +8,8 @@ import NewPass from "../newPass";
 import Privatezone from "../Privatezone";
 import Details from "../Details";
 import ListMyAds from "../ListMyAds";
+import ListUser from "../ListUser";
+import UserAds from "../UserAds";
 import FormAds from "../FormAds";
 import PrivateRoute from "../../privateRouter/PrivateRouter";
 
@@ -23,6 +25,8 @@ class App extends Component {
           render={(props) => <RecoverPass {...props} />}
         />
         <Route path="/details" render={(props) => <Details {...props} />} />
+        <Route path="/listuser" render={(props) => <ListUser {...props} />} />
+        <Route path="/showmyads" render={(props) => <UserAds {...props} />} />
         <PrivateRoute
           path="/editads/:id"
           component={(props) => <FormAds {...props} />}
