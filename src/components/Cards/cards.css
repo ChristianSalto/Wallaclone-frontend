@@ -1,27 +1,22 @@
 .cntr-cards-r {
-    background: linear-gradient(to top left,
-            rgba(255, 0, 0, 0) 0%,
-            rgba(255, 0, 0, 0) calc(50% - 10px),
-            rgba(255, 0, 0, 1) 50%,
-            rgba(255, 0, 0, 0) calc(50% + 10px),
-            rgba(255, 0, 0, 0) 100%);
-    margin  : 3rem;
-    width   : 20rem;
-    position: absolute;
-    height  : 495px;
+    background-image     : url("/img/reserved.jpg");
+    background-repeat    : no-repeat;
+    background-size      : 320px 270px;
+    background-position-y: -25px;
+    margin               : 3rem;
+    width                : 20rem;
+    position             : absolute;
+    height               : 495px;
 }
 
 .cntr-cards-v {
-    background: linear-gradient(to top left,
-            rgba(5, 1, 255, 0) 0%,
-            rgba(5, 1, 255, 0) calc(50% - 10px),
-            rgba(5, 1, 255, 1) 50%,
-            rgba(5, 1, 255, 0) calc(50% + 10px),
-            rgba(5, 1, 255, 0) 100%);
-    margin  : 3rem;
-    width   : 20rem;
-    position: absolute;
-    height  : 495px;
+    background-image : url("/img/sold.webp");
+    background-repeat: no-repeat;
+    background-size  : 320px 245px;
+    margin           : 3rem;
+    width            : 20rem;
+    position         : absolute;
+    height           : 495px;
 }
 
 .cards {
@@ -112,4 +107,20 @@
     padding-top    : 1.5rem;
     padding-bottom : 1rem;
     color          : black;
+}
+
+
+.icon-cart:before {
+    content: "\e93a";
+}
+
+
+.icon-cart {
+    font-size: 32px;
+}
+
+.btn-i-cart {
+    float : right;
+    margin: 20px;
+    color : blue;
 }

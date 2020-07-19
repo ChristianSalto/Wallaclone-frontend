@@ -26,7 +26,7 @@ class App extends Component {
         />
         <Route path="/details" render={(props) => <Details {...props} />} />
         <Route path="/listuser" render={(props) => <ListUser {...props} />} />
-        <Route path="/showmyads" render={(props) => <UserAds {...props} />} />
+        <Route path="/userads" render={(props) => <UserAds {...props} />} />
         <PrivateRoute
           path="/editads/:id"
           component={(props) => <FormAds {...props} />}

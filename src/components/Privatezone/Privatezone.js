@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "../Form/Form";
 import Input from "../Input/Input";
 import { Link } from "react-router-dom";
@@ -18,18 +18,20 @@ const Privatezone = (props) => {
   };
 
   const handeleUpdate = async (params) => {
-    const { ui } = await putUser(user.id, user.token, params);
-    console.log(getUi);
-    setMsj(ui.msj);
-    setTimeout(() => {
-      setMsj("");
-    }, 5000);
+    await putUser(user.id, user.token, params);
   };
 
   const clearCookies = () => {
     localStorage.removeItem("user");
     props.clearCookies();
   };
+
+  useEffect(() => {
+    setMsj(getUi.msj);
+    setTimeout(() => {
+      setMsj("");
+    }, 5000);
+  }, [getUi.msj]);
 
   return (
     <div className="cntr-prvt-zone">

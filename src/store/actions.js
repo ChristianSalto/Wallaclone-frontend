@@ -4,6 +4,10 @@ export const clearSession = () => ({
   type: TYPES.CLEAR_SESSION,
 });
 
+export const clearMsj = () => ({
+  type: TYPES.CLEAR_MSJ,
+});
+
 export const fetchRequest = () => ({
   type: TYPES.FETCH_REQUEST,
 });
@@ -162,7 +166,6 @@ export const fetchPutUser = (id, token, params) => async (
       localStorage.removeItem("user");
     }
     dispatch(fetchSuccessUser(data));
-    return getState();
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -177,7 +180,6 @@ export const fetchGetMyAds = (username, token) => async (
   try {
     const data = await Api.getMyAds(username, token);
     dispatch(fetchSuccessAds(data));
-    return data;
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -250,22 +252,35 @@ export const actGetAdsUser = (user, date) => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.getAllAdsUsers(user, date);
-    return data.result;
+    dispatch(fetchSuccessAds(data));
   } catch (error) {
     dispatch(fetchFailure(error));
   }
 };
 
-export const actReserveAds = (ads, token, id) => async (
+export const actStatusAds = (ads, token, id) => async (
   dispatch,
   getState,
   { Api, history }
 ) => {
   dispatch(fetchRequest());
   try {
-    const data = await Api.putReserverAds(ads, token, id);
+    const data = await Api.putStatusAds(ads, token, id);
     dispatch(fetchSuccessAds(data));
     history.push("/privatezone");
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actAddCart = (adverts, username) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  try {
+    const data = await Api.postAddCart(adverts, username);
+    console.log(data);
   } catch (error) {
     dispatch(fetchFailure(error));
   }

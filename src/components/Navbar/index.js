@@ -1,17 +1,15 @@
-export { default } from "./Navbar";
+import { connect } from "react-redux";
 
-// import { connect } from "react-redux";
+import Navbar from "./Navbar";
+import { clearMsj } from "../../store/actions";
 
-// import Navbar from "./Navbar";
-// import { clearSession } from "../../store/actions";
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    clearMsj: () => dispatch(clearMsj()),
+  };
+}
 
-// function mapDispatchToProps(dispatch, ownProps) {
-//   return {
-//     clearCookies: () => dispatch(clearSession()),
-//   };
-// }
+const connected = connect(null, mapDispatchToProps);
+const NavbarConnected = connected(Navbar);
 
-// const connected = connect(null, mapDispatchToProps);
-// const NavbarConnected = connected(Navbar);
-
-// export default NavbarConnected;
+export default NavbarConnected;

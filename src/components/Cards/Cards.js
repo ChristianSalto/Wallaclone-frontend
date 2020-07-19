@@ -15,11 +15,11 @@ const Cards = (props) => {
     <>
       {ads.map((card) => (
         <div key={card._id}>
-          {card.status === "reservado" ? (
+          {/* {card.status === "reservado" ? (
             <div className="cntr-cards-r"></div>
           ) : card.status === "vendido" ? (
             <div className="cntr-cards-v"></div>
-          ) : null}
+          ) : null} */}
           <Card className="cards" onClick={() => handleDetails(card._id)}>
             <Card.Img
               variant="top"

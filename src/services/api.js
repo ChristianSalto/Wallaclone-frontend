@@ -28,10 +28,7 @@ export const getMyAds = (username, token) => {
 
 export const registerUser = (data) => {
   return fetch(`${URL}register`, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+    headers,
     method: "POST",
     body: JSON.stringify(data),
   })
@@ -46,10 +43,7 @@ export const loginUser = (username, password) => {
   };
 
   return fetch(`${URL}login`, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+    headers,
     method: "POST",
     body: JSON.stringify(data),
   })
@@ -64,10 +58,7 @@ export const deleteUser = (id, token, user) => {
     token,
   };
   return fetch(`${URL}privatezone`, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+    headers,
     method: "DELETE",
     body: JSON.stringify(data),
   })
@@ -99,11 +90,11 @@ export const putAds = (formData, token, id) => {
     .catch((err) => err);
 };
 
-export const putReserverAds = (ads, token, id) => {
+export const putStatusAds = (ads, token, id) => {
   const data = {
     ads,
   };
-  return fetch(`${URL}privatezone/reserverads?token=${token}&id=${id}`, {
+  return fetch(`${URL}privatezone/statusads?token=${token}&id=${id}`, {
     headers,
     method: "PUT",
     body: JSON.stringify(data),
@@ -141,10 +132,7 @@ export const postRecoverPass = (email) => {
   };
 
   return fetch(`${URL}recoverpass`, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+    headers,
     method: "POST",
     body: JSON.stringify(data),
   })
@@ -158,10 +146,7 @@ export const putNewPass = (password) => {
   };
 
   return fetch(`${URL}newpass`, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+    headers,
     method: "PUT",
     body: JSON.stringify(data),
   })
@@ -177,6 +162,20 @@ export const getAllUsers = () => {
 
 export const getAllAdsUsers = (user, date) => {
   return fetch(`${URL}listusers/ads?autor=${user}&sort=${date}`)
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const postAddCart = (adverts, username) => {
+  const data = {
+    username,
+    adverts,
+  };
+  return fetch(`${URL}details/cart`, {
+    headers,
+    method: "POST",
+    body: JSON.stringify(data),
+  })
     .then((res) => res.json())
     .catch((err) => err);
 };

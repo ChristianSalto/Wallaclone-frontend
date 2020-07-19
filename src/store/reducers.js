@@ -2,7 +2,9 @@ import * as TYPES from "./types";
 
 const initialState = {
   user: [],
-  adverts: [],
+  adverts: {
+    adverts: [],
+  },
   ui: {
     isFetching: false,
     msj: "",
@@ -15,12 +17,6 @@ export function user(state = initialState.user, action) {
       return {
         ...state,
         user: action.data.result ? action.data.result : state.user,
-        // user: {
-        //   username: action.data.username,
-        //   email: action.data.email,
-        //   token: action.data.token ? action.data.token : state.user.token,
-        //   id: action.data.id ? action.data.id : state.user.id,
-        // },
       };
 
     case TYPES.CLEAR_SESSION:
@@ -75,6 +71,12 @@ export function ui(state = initialState.ui, action) {
         ...state,
         isFetching: action.data.success,
         msj: action.data.msj,
+      };
+
+    case TYPES.CLEAR_MSJ:
+      return {
+        ...state,
+        msj: "",
       };
 
     default:

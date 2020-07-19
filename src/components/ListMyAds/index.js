@@ -1,16 +1,19 @@
 import { connect } from "react-redux";
 
 import ListMyAds from "./ListMyAds";
-import { getUser } from "../../store/selectors";
+import { getUser, getAds, getUi } from "../../store/selectors";
 import {
   fetchGetMyAds,
   actDeleteAds,
-  actReserveAds,
+  actStatusAds,
+  clearMsj,
 } from "../../store/actions";
 
 function mapStateToProps(state, ownProps) {
   return {
-    getMyUser: () => getUser(state),
+    getUser: getUser(state),
+    getAds: getAds(state),
+    getUi: getUi(state),
   };
 }
 
@@ -18,8 +21,8 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     getMyAds: (username, token) => dispatch(fetchGetMyAds(username, token)),
     deleteAds: (id, token) => dispatch(actDeleteAds(id, token)),
-
-    reserverAds: (ads, token, id) => dispatch(actReserveAds(ads, token, id)),
+    clearMsj: () => dispatch(clearMsj()),
+    statusAds: (ads, token, id) => dispatch(actStatusAds(ads, token, id)),
   };
 }
 

@@ -24,7 +24,7 @@ const ListUser = (props) => {
             <li key={name}>
               <Link
                 to={{
-                  pathname: `/showmyads/${name}`,
+                  pathname: `/userads/${name}`,
                 }}
               >
                 {name}

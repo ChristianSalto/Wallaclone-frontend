@@ -6,11 +6,6 @@ import "./navbar.css";
 const Navbar = (props) => {
   let [status, setStatus] = useState(false);
 
-  // const clearCookies = () => {
-  //   localStorage.removeItem("user");
-  //   props.clearCookies();
-  // };
-
   return (
     <Fragment>
       <div className="title-div">
@@ -34,7 +29,11 @@ const Navbar = (props) => {
                 </Link>
               </li> */}
               <li>
-                <Link to="/privatezone" className="nav-menu-li">
+                <Link
+                  to="/privatezone"
+                  className="nav-menu-li"
+                  onClick={() => props.clearMsj()}
+                >
                   Private
                 </Link>
               </li>

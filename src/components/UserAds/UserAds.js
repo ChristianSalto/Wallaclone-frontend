@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Cards from "../Cards";
 import { Button } from "@material-ui/core";
 import "./userAds.css";
@@ -7,13 +8,13 @@ const UserAds = (props) => {
   const user = props.location.pathname.split("/")[2];
   const [date, setDate] = useState(false);
 
-  const { getAdsUsers } = props;
-  const [adsUsers, setAdsUsers] = useState([]);
+  const { getAdsUsers, getAds, getUi, clearMsj } = props;
+  const { adverts } = getAds;
+  const { msj } = getUi;
 
   useEffect(() => {
     const getAllAdsUsers = async () => {
-      const allAdsUsers = await getAdsUsers(user, date);
-      setAdsUsers(allAdsUsers);
+      await getAdsUsers(user, date);
     };
 
     getAllAdsUsers();
@@ -29,13 +30,17 @@ const UserAds = (props) => {
         latest announcements
       </Button>
       <div className="cntr-cards-user">
-        <Cards ads={adsUsers} />
+        {adverts.length === 0 ? (
+          <h1 className="h1-msj">{msj}</h1>
+        ) : (
+          <Cards ads={adverts} />
+        )}
       </div>
-      <div className="cntr-back">
-        <Button onClick={() => props.history.push("/listuser")}>
+      <Link to="/listuser" className="cntr-back">
+        <Button onClick={() => clearMsj()}>
           <h1>&#9668;</h1>back
         </Button>
-      </div>
+      </Link>
     </div>
   );
 };

@@ -1,56 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import Icon from "@material-ui/core/Icon";
 
 import "./listMyAds.css";
 
 const ListMyAds = (props) => {
-  const { getMyAds, getMyUser, deleteAds, reserverAds } = props;
-  let [myAds, setMyAds] = useState([]);
-  let [msjAds, setMsj] = useState("");
-  const { user } = getMyUser();
-  const { username, token } = user;
+  const {
+    getMyAds,
+    getUi,
+    getAds,
+    getUser,
+    deleteAds,
+    statusAds,
+    clearMsj,
+  } = props;
+
+  const { user } = getUser;
 
   const handleDeleteAds = (id, token) => {
     deleteAds(id, token);
   };
 
-  const handleReserver = (ads, event) => {
-    event.currentTarget.value === "reservedo"
-      ? (ads.status = "reservado")
-      : (ads.status = "vendido");
-    reserverAds(ads, token, ads._id);
+  const handleStatus = (ads, event) => {
+    const { value } = event.currentTarget;
+    ads.status = value;
+
+    statusAds(ads, user.token, ads._id);
   };
 
   useEffect(() => {
     const getAdverts = async () => {
-      const { result, msj } = await getMyAds(username, token);
-      setMyAds((myAds = result));
-      setMsj((msjAds = msj));
+      await getMyAds(user.username, user.token);
     };
-
     getAdverts();
-  }, [getMyAds]);
+  }, [getMyAds, user.username, user.token]);
+
   return (
     <div className="cntr-myAds-list-user">
       <header className="header-list">
-        <h1>All the announcements of {username}</h1>
+        <h1>All the announcements of {user.username}</h1>
       </header>
       <div className="cntr-myAds">
-        {myAds.map((ads) => (
+        {getAds.adverts.map((ads) => (
           <div key={ads._id}>
             <Button
+              className="btn-v"
               value="reservado"
-              onClick={(event) => handleReserver(ads, event)}
+              onClick={(event) => handleStatus(ads, event)}
             >
-              reservado
+              res
             </Button>
             <Button
               className="btn-v"
               value="vendido"
-              onClick={(event) => handleReserver(ads, event)}
+              onClick={(event) => handleStatus(ads, event)}
             >
-              vendido
+              ven
+            </Button>
+            <Button
+              className="btn-v"
+              value="busco"
+              onClick={(event) => handleStatus(ads, event)}
+            >
+              des
             </Button>
             <h4>{ads.name}</h4>
             <Button
@@ -66,7 +79,7 @@ const ListMyAds = (props) => {
             </Button>
             <Button
               className="btn-delete"
-              onClick={() => handleDeleteAds(ads._id, token)}
+              onClick={() => handleDeleteAds(ads._id, user.token)}
             >
               <Icon className="icon-delete">delete</Icon>
             </Button>
@@ -74,13 +87,13 @@ const ListMyAds = (props) => {
         ))}
       </div>
       <div className="cntr-msj">
-        <h1>{msjAds}</h1>
+        <h1>{getUi.msj}</h1>
       </div>
-      <div className="cntr-back">
-        <Button onClick={() => props.history.push("/privatezone")}>
+      <Link to="/privatezone" className="cntr-back">
+        <Button onClick={() => clearMsj()}>
           <h1>&#9668;</h1>back
         </Button>
-      </div>
+      </Link>
     </div>
   );
 };

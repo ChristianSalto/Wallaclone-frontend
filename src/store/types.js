@@ -5,3 +5,4 @@ export const FETCH_SUCCESS_USER = "FETCH_SUCCESS_USER";
 export const FETCH_SUCCESS_ADS = "FETCH_SUCCESS_ADS";
 
 export const CLEAR_SESSION = "CLEAR_SESSION";
+export const CLEAR_MSJ = "CLEAR_MSJ";
