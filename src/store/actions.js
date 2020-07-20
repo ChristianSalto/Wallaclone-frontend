@@ -280,7 +280,33 @@ export const actAddCart = (adverts, username) => async (
 ) => {
   try {
     const data = await Api.postAddCart(adverts, username);
-    console.log(data);
+    dispatch(fetchSuccessAds(data));
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actGetCart = (username, token) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  try {
+    const data = await Api.getCart(username, token);
+    dispatch(fetchSuccessAds(data));
+  } catch (error) {
+    dispatch(fetchFailure(error));
+  }
+};
+
+export const actRemoveCart = (username, token) => async (
+  dispatch,
+  getState,
+  { Api, history }
+) => {
+  try {
+    const data = await Api.removeCart(username, token);
+    dispatch(fetchSuccessAds(data));
   } catch (error) {
     dispatch(fetchFailure(error));
   }

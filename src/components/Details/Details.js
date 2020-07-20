@@ -10,22 +10,27 @@ import Cards from "../Cards";
 import Load from "../Load";
 
 import { Button } from "@material-ui/core";
-// import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 import "./details.css";
 
 const Details = (props) => {
   const { adverts } = props.getStateAds;
   const { user } = props.getStateUser;
+  const ui = props.getStateUi;
   const { addCart } = props;
   const [msj, setMsj] = useState("");
 
-
   const handleCart = (adverts, user) => {
-    !user
-      ? setMsj("you need to be logged in")
-      : addCart(adverts, user.username);
+    if (!user) {
+      setMsj("You need to be logged in");
+    } else {
+      addCart(adverts, user.username);
+    }
   };
+
+  useEffect(() => {
+    setMsj(ui.msj);
+  }, [ui.msj]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -46,9 +51,14 @@ const Details = (props) => {
             className="btn-i-cart"
             onClick={() => handleCart(adverts, user)}
           >
-            <span className="icon-cart"></span>
+            <span>
+              <img
+                className="img-cart-detls"
+                src="/img/cart.png"
+                alt="cart"
+              ></img>
+            </span>
           </Button>
-          <h3>{msj}</h3>
           <div className="container-details">
             <Cards ads={adverts} />
           </div>
@@ -70,6 +80,8 @@ const Details = (props) => {
       >
         <h1 className="h1-btn-back">&#9668;</h1>home
       </Button>
+
+      <h3 className="h3-msj-details">{msj}</h3>
     </div>
   );
 };

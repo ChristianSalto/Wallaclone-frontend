@@ -179,3 +179,17 @@ export const postAddCart = (adverts, username) => {
     .then((res) => res.json())
     .catch((err) => err);
 };
+
+export const getCart = (username, token) => {
+  return fetch(`${URL}cart?autor=${username}&token=${token}`)
+    .then((res) => res.json())
+    .catch((err) => err);
+};
+
+export const removeCart = (username, token) => {
+  return fetch(`${URL}cart?autor=${username}&token=${token}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .catch((err) => err);
+};

@@ -1,0 +1,32 @@
+.cntr-header-cart {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cntr-cart {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    justify-content: center;
+}
+
+.cntr-cart>h1 {
+    color        : red;
+    margin-top   : 200px;
+    margin-bottom: 320px;
+}
+
+.link-back {
+    text-decoration: none;
+}
+
+.cntr-back-cart {
+    /* margin-top : 200px; */
+    margin-left: 10px;
+}
+
+
+.btn-dlt-cart {
+    float       : right;
+    margin-right: 10px;
+}

@@ -11,6 +11,7 @@ import ListMyAds from "../ListMyAds";
 import ListUser from "../ListUser";
 import UserAds from "../UserAds";
 import FormAds from "../FormAds";
+import Cart from "../Cart";
 import PrivateRoute from "../../privateRouter/PrivateRouter";
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
           path="/listmyads"
           component={(props) => <ListMyAds {...props} />}
         />
+        <PrivateRoute path="/cart" component={(props) => <Cart {...props} />} />
       </Switch>
     );
   }

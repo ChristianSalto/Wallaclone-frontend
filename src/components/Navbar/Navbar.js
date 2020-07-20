@@ -47,11 +47,17 @@ const Navbar = (props) => {
                   Log in
                 </Link>
               </li>
-              {/* <li>
-                <Link to="/" className="nav-menu-li" onClick={clearCookies}>
-                  Log out
+              <li>
+                <Link to="/cart" className="nav-menu-li">
+                  <span>
+                    <img
+                      className="img-cart"
+                      src="img/cart.png"
+                      alt="cart"
+                    ></img>
+                  </span>
                 </Link>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import Details from "./Details";
+import Cart from "./Cart";
+import { actGetCart, actRemoveCart } from "../../store/actions";
 import { getAds, getUser, getUi } from "../../store/selectors";
-import { actAddCart } from "../../store/actions";
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -14,11 +14,12 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    addCart: (adverts, username) => dispatch(actAddCart(adverts, username)),
+    getCart: (username, token) => dispatch(actGetCart(username, token)),
+    removeCart: (username, token) => dispatch(actRemoveCart(username, token)),
   };
 }
 
 const connected = connect(mapStateToProps, mapDispatchToProps);
-const DetailsConnected = connected(Details);
+const CartConnected = connected(Cart);
 
-export default DetailsConnected;
+export default CartConnected;

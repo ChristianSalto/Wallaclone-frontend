@@ -65,3 +65,11 @@ ul {
 .face {
     margin-left: 12px;
 }
+
+.img-cart {
+    filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(96deg) brightness(107%) contrast(101%);
+}
+
+.img-cart:hover {
+    filter: invert(66%) sepia(81%) saturate(584%) hue-rotate(129deg) brightness(106%) contrast(103%);
+}

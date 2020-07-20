@@ -61,10 +61,7 @@ export default function Main(props) {
     get();
   }, [loadAds, date, skip]);
 
-  // useEffect(() => {
-  //   getSkip(count);
-  // }, [count, getSkip]);
-
+ 
   return (
     <div className="grid-container">
       <header className="header">
@@ -94,7 +91,10 @@ export default function Main(props) {
               handleFilterTags={handleFilterTags}
               selectedValue={selectedValue}
             />
-            <Button className="btn-list-user" onClick={() => props.history.push("/listuser")}>
+            <Button
+              className="btn-list-user"
+              onClick={() => props.history.push("/listuser")}
+            >
               User list
             </Button>
           </div>
@@ -112,9 +112,6 @@ export default function Main(props) {
             <h2>&#9658;</h2>
           </Button>
         </div>
-        {/* <div>
-          <Button>User list</Button>
-        </div> */}
       </main>
       <footer className="footer">
         <div className="cntr-footer">
