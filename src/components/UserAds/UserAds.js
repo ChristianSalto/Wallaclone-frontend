@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Cards from "../Cards";
+import Load from "../Load";
 import { Button } from "@material-ui/core";
 import "./userAds.css";
 
 const UserAds = (props) => {
   const user = props.location.pathname.split("/")[2];
   const [date, setDate] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const { getAdsUsers, getAds, getUi, clearMsj } = props;
   const { adverts } = getAds;
   const { msj } = getUi;
+
+  useEffect(() => {
+    setLoad(true);
+  }, []);
 
   useEffect(() => {
     const getAllAdsUsers = async () => {
@@ -32,6 +38,8 @@ const UserAds = (props) => {
       <div className="cntr-cards-user">
         {adverts.length === 0 ? (
           <h1 className="h1-msj">{msj}</h1>
+        ) : !load ? (
+          <Load />
         ) : (
           <Cards ads={adverts} />
         )}

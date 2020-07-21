@@ -13,6 +13,11 @@ const Navbar = (props) => {
           <h1>Wallaclone</h1>
         </Link>
       </div>
+      <Link to="/cart" className="img-cart-link">
+        <span>
+          <img className="img-cart" src="img/cart.png" alt="cart"></img>
+        </span>
+      </Link>
       <div>
         <button
           className="btn-sidebar"
@@ -45,17 +50,6 @@ const Navbar = (props) => {
               <li>
                 <Link to="/login" className="nav-menu-li">
                   Log in
-                </Link>
-              </li>
-              <li>
-                <Link to="/cart" className="nav-menu-li">
-                  <span>
-                    <img
-                      className="img-cart"
-                      src="img/cart.png"
-                      alt="cart"
-                    ></img>
-                  </span>
                 </Link>
               </li>
             </ul>

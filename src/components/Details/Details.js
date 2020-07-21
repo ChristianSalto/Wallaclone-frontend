@@ -20,7 +20,7 @@ const Details = (props) => {
   const { addCart } = props;
   const [msj, setMsj] = useState("");
 
-  const handleCart = (adverts, user) => {
+  const handleCart = () => {
     if (!user) {
       setMsj("You need to be logged in");
     } else {
@@ -49,15 +49,16 @@ const Details = (props) => {
         <Fragment>
           <Button
             className="btn-i-cart"
-            onClick={() => handleCart(adverts, user)}
+            onClick={() => handleCart()}
           >
-            <span>
+            add to cart
+            {/* <span>
               <img
                 className="img-cart-detls"
                 src="/img/cart.png"
                 alt="cart"
               ></img>
-            </span>
+            </span> */}
           </Button>
           <div className="container-details">
             <Cards ads={adverts} />

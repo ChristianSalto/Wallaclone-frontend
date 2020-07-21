@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Cards from "../Cards";
+import Load from "../Load";
 
 import { Link } from "react-router-dom";
 import { Button, Icon } from "@material-ui/core";
@@ -12,10 +13,15 @@ const Cart = (props) => {
   const { adverts } = getStateAds;
   const ui = getStateUi;
   const { username, token } = user;
+  const [load, setLoad] = useState(false);
 
   const handleRemoveCart = async () => {
     await removeCart(username, token);
   };
+
+  useEffect(() => {
+    setLoad(true);
+  }, []);
 
   useEffect(() => {
     const getMyCart = async () => {
@@ -30,7 +36,7 @@ const Cart = (props) => {
         <h1>Cart of {username}</h1>
       </div>
       <div className="cntr-cart">
-        <Cards ads={adverts} />
+        {!load ? <Load /> : <Cards ads={adverts} />}
         <h1>{ui.msj}</h1>
       </div>
       <div className="cntr-back-cart">

@@ -56,8 +56,15 @@
     box-shadow : inset 0 0 5px 5px rgb(192, 190, 190);
     padding    : 1rem;
     font-family: fantasy;
+    height     : 50px;
+    overflow-y : scroll;
 }
 
+
+
+.c-descri::-webkit-scrollbar {
+    display: none;
+}
 
 .c-tags {
     text-align: center;

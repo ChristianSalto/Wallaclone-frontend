@@ -15,7 +15,7 @@
     grid-area       : header;
     background-color: black;
     display         : flex;
-    justify-content : space-between;
+    justify-content : flex-end;
     align-items     : center;
 }
 
