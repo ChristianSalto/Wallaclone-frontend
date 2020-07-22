@@ -2,6 +2,13 @@ import { connect } from "react-redux";
 
 import ListUser from "./ListUser";
 import { actGetAllUsers } from "../../store/actions";
+import { getUser } from "../../store/selectors";
+
+function mapStateToProps(state, ownProps) {
+  return {
+    getStateUser: getUser(state),
+  };
+}
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
@@ -9,7 +16,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   };
 }
 
-const connected = connect(null, mapDispatchToProps);
+const connected = connect(mapStateToProps, mapDispatchToProps);
 const ListUserConnected = connected(ListUser);
 
 export default ListUserConnected;

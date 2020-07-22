@@ -1,7 +1,9 @@
 import * as TYPES from "./types";
 
 const initialState = {
-  user: [],
+  user: {
+    user: [],
+  },
   adverts: {
     adverts: [],
   },
@@ -22,7 +24,7 @@ export function user(state = initialState.user, action) {
     case TYPES.CLEAR_SESSION:
       return {
         ...state,
-        user: null,
+        user: [],
       };
 
     default:

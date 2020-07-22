@@ -28,6 +28,7 @@ class App extends Component {
         <Route path="/details" render={(props) => <Details {...props} />} />
         <Route path="/listuser" render={(props) => <ListUser {...props} />} />
         <Route path="/userads" render={(props) => <UserAds {...props} />} />
+        <Route path="/newpass" render={(props) => <NewPass {...props} />} />
         <PrivateRoute
           path="/editads/:id"
           component={(props) => <FormAds {...props} />}
@@ -35,10 +36,6 @@ class App extends Component {
         <PrivateRoute
           path="/createads"
           component={(props) => <FormAds {...props} />}
-        />
-        <PrivateRoute
-          path="/newpass"
-          component={(props) => <NewPass {...props} />}
         />
         <PrivateRoute
           path="/privatezone"

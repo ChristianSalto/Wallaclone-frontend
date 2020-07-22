@@ -4,6 +4,11 @@
     padding: 10px;
 }
 
+.h3-rec-pass {
+    margin: 20px;
+    color : red;
+}
+
 .btn-recoverpass {
     margin-top : 30px;
     margin-left: -350px;
@@ -15,6 +20,8 @@
     border       : 1px solid rgb(44, 43, 43);
     background   : gray;
     padding      : 4px;
+    outline      : none;
+    color        : white;
 }
 
 .inp-recoverpass::placeholder {

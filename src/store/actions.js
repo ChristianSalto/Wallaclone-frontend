@@ -87,7 +87,7 @@ export const fetchRecoverPass = (email) => async (
         token: data.token,
       })
     );
-    history.push("/login");
+    dispatch(fetchSuccessUser(data));
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -238,7 +238,7 @@ export const actGetAllUsers = () => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.getAllUsers();
-    return data.result;
+    dispatch(fetchSuccessUser(data));
   } catch (error) {
     dispatch(fetchFailure(error));
   }

@@ -1,15 +1,23 @@
 import { connect } from "react-redux";
 
 import RecoverPass from "./RecoverPass";
-import { fetchRecoverPass } from "../../store/actions";
+import { fetchRecoverPass, clearMsj } from "../../store/actions";
+import { getUi } from "../../store/selectors";
 
-function mapDispatchToProps(dispatch, ownProps) {
+function mapStateToProps(state, ownProps) {
   return {
-    recoverPass: (email) => dispatch(fetchRecoverPass(email, ownProps)),
+    getStateUi: getUi(state),
   };
 }
 
-const connected = connect(null, mapDispatchToProps);
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    recoverPass: (email) => dispatch(fetchRecoverPass(email)),
+    clearMsj: () => dispatch(clearMsj()),
+  };
+}
+
+const connected = connect(mapStateToProps, mapDispatchToProps);
 const UserRecoverPass = connected(RecoverPass);
 
 export default UserRecoverPass;
