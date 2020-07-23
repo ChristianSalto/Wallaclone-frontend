@@ -238,7 +238,7 @@ export const actGetAllUsers = () => async (
   dispatch(fetchRequest());
   try {
     const data = await Api.getAllUsers();
-    dispatch(fetchSuccessUser(data));
+    return data;
   } catch (error) {
     dispatch(fetchFailure(error));
   }

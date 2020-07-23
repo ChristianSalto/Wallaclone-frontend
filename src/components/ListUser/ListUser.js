@@ -1,27 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import "./listUser.css";
 
 const ListUser = (props) => {
-  // const [users, setUsers] = useState([]);
-  const { getUsers, getStateUser } = props;
-  const { user } = getStateUser;
+  const [users, setUsers] = useState([]);
+  const { getUsers } = props;
+  // const { user } = getStateUser;
 
   useEffect(() => {
     const getAllUsers = async () => {
-      await getUsers();
-      // setUsers(allUsers);
+      const data = await getUsers();
+      setUsers(data.result);
     };
 
     getAllUsers();
   }, [getUsers]);
+
   return (
     <div className="cntr-list-users">
       <h1>User list</h1>
       <div>
         <ul className="ul-list-users">
-          {user.map((name) => (
+          {users.map((name) => (
             <li key={name}>
               <Link
                 to={{
