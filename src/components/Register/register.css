@@ -1,59 +1,59 @@
 .container-R {
-  display         : flex;
-  justify-content : center;
-  align-items     : center;
-  flex-direction  : column;
-  width           : flex;
-  height          : 100%;
-  background-image: url("/img/star_wars_r.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: flex;
+  height: 100%;
+  /* background-image: url("/img/star_wars_r.jpg"); */
+  background: black;
 }
 
 @font-face {
   font-family: "Star Wars";
-  src        : url("/font/Starjhol.ttf");
+  src: url("/font/Starjhol.ttf");
 }
 
 .title {
-  display    : flex;
+  display: flex;
   font-family: "Star Wars";
-  color      : goldenrod;
-  padding    : 10px;
-  font-size  : 50px;
+  color: goldenrod;
+  padding: 10px;
+  font-size: 50px;
 }
 
-
 .form-regis {
-  margin-top   : 5%;
-  padding      : 5px;
-  width        : 450px;
-  height       : 450px;
-  border       : 0.5px solid rgb(83, 82, 82);
+  margin-top: 5%;
+  padding: 5px;
+  width: 450px;
+  height: 450px;
+  border: 0.5px solid #3f888f;
   border-radius: 10px;
 }
 
 .input-re {
-  margin       : 45px;
-  background   : none;
-  color        : #c6c6c6;
-  font-size    : 18px;
-  padding      : 10px 10px 10px 5px;
-  display      : block;
-  width        : 250px;
-  border       : none;
+  margin: 45px;
+  background: none;
+  color: #c6c6c6;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 250px;
+  border: none;
   border-radius: 0;
   border-bottom: 1px solid #c6c6c6;
-  transition   : 0.3s;
+  transition: 0.3s;
 }
 
 .input-re::placeholder {
-  color  : goldenrod;
+  color: goldenrod;
   opacity: 0.7;
 }
 
 .input-re:focus {
   box-shadow: 2px 2px 4px 0px goldenrod;
-  outline   : none;
-  width     : 300px
+  outline: none;
+  width: 300px
 }
 
 .input-re:hover {
@@ -61,7 +61,7 @@
 }
 
 .button-re {
-  margin     : 25px;
+  margin: 25px;
   margin-left: 40px;
 }
 
@@ -71,7 +71,7 @@
 
 .link-log {
   text-decoration: none;
-  outline        : none;
+  outline: none;
 }
 
 .msj-re {
@@ -79,34 +79,28 @@
 }
 
 .home-r {
-  color        : white;
-  font-size    : 40px;
-  margin-top   : 15px;
+  color: white;
+  font-size: 40px;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 
-
 @media only screen and (max-width: 500px) {
-
   .form-regis {
     width: 300px;
   }
-
   .input-re {
     font-size: 15px;
-    width    : 200px;
+    width: 200px;
   }
-
   .button-re {
-    font-size  : 10px;
-    margin     : 20px;
+    font-size: 10px;
+    margin: 20px;
     margin-left: 40px;
   }
-
   .input-re:focus {
     width: 230px
   }
-
   .title {
     font-size: 40px;
   }

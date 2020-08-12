@@ -12,6 +12,7 @@ const Form = ({ initialValue, onSubmit, children, ...props }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("form", value)
     onSubmit(value);
   };
 

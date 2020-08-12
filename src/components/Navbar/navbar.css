@@ -1,63 +1,60 @@
 .title-div {
-    position   : absolute;
-    left       : 0px;
+    position: absolute;
+    left: 0px;
     margin-left: 20px;
 }
 
 .title-link {
-    color          : #3f888f;
+    color: #3f888f;
     text-decoration: none;
+}
+
+.cntr-cart-sidebar {
+    position: absolute;
+    background: black;
 }
 
 .btn-sidebar {
-    margin    : .5rem;
-    font-size : 2rem;
-    padding   : .3rem;
+    margin: 1rem;
+    font-size: 2rem;
+    padding: .3rem;
     background: none;
-    border    : none;
-    color     : white;
-    cursor    : pointer;
-    outline   : none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    z-index: 1000;
 }
 
 .nav-menu {
-    position           : fixed;
-    transform          : translate(5.6rem);
-    transition-duration: 1s;
-    width              : 9rem;
-    height             : 12rem;
-    text-align         : center;
-    background-color   : black;
-    border-radius      : 0px 10px;
-    z-index            : 10000;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(110px);
+    transition-duration: 1.5s;
+    width: 25rem;
+    height: 5rem;
+    margin-top: -80px;
+    /**/
+    background-color: rgb(0, 0, 0);
+    z-index: -1;
 }
 
 .nav-menu.show {
-    position           : absolute;
-    transition-duration: 1s;
-    transform          : translate(-5.6rem);
-    z-index            : 10000;
+    position: absolute;
+    transition-duration: 1.5s;
+    transform: translate(-25.5rem);
 }
-
-ul {
-    list-style: none;
-}
-
-/* .container-menu{
-    border: 1px solid black;
-    height: 15rem;
-} */
 
 .nav-menu-li {
-    display        : flex;
-    justify-content: space-between;
-    align-items    : center;
-    color          : white;
-    padding        : .4rem;
-    padding-left   : 1.5rem;
+    color: white;
+    padding: .4rem;
+    padding-left: 1.5rem;
     text-decoration: none;
-    font-size      : 1.2rem;
-    margin-top     : 1rem;
+    font-size: 1.2rem;
+    margin: 20px;
+    /* margin-top: 1rem; */
 }
 
 .nav-menu-li:hover {

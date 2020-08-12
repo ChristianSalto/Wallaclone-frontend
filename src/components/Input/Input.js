@@ -3,6 +3,7 @@ import { formContext } from "../Form/Form";
 
 const Input = ({ component: Component = "input", ...props }) => {
   const { value, handleChange } = useContext(formContext);
+  console.log("input", value)
   return (
     <Component
       placeholder={props.placeholder ? props.placeholder : props.name}

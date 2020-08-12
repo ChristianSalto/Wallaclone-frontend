@@ -13,12 +13,12 @@ const Navbar = (props) => {
           <h1>Wallaclone</h1>
         </Link>
       </div>
-      <Link to="/cart" className="img-cart-link">
-        <span>
-          <img className="img-cart" src="img/cart.png" alt="cart"></img>
-        </span>
-      </Link>
-      <div>
+      <div className="cntr-cart-sidebar">
+        <Link to="/cart" className="img-cart-link">
+          <span>
+            <img className="img-cart" src="img/cart.png" alt="cart"></img>
+          </span>
+        </Link>
         <button
           className="btn-sidebar"
           onClick={() => setStatus((status = !status))}
@@ -27,32 +27,22 @@ const Navbar = (props) => {
         </button>
         <div className={"nav-menu " + (status ? "show" : "")}>
           <div className="container-menu">
-            <ul>
-              {/* <li>
-                <Link className="nav-menu-li">
-                  <Icon className="face">face</Icon>
+
+            <Link
+              to="/privatezone"
+              className="nav-menu-li"
+              onClick={() => props.clearMsj()}
+            >
+              Private
                 </Link>
-              </li> */}
-              <li>
-                <Link
-                  to="/privatezone"
-                  className="nav-menu-li"
-                  onClick={() => props.clearMsj()}
-                >
-                  Private
+
+            <Link to="/register" className="nav-menu-li">
+              Check in
                 </Link>
-              </li>
-              <li>
-                <Link to="/register" className="nav-menu-li">
-                  Check in
+
+            <Link to="/login" className="nav-menu-li">
+              Log in
                 </Link>
-              </li>
-              <li>
-                <Link to="/login" className="nav-menu-li">
-                  Log in
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </div>

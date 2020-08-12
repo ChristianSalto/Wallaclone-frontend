@@ -1,12 +1,10 @@
 .btn-r-container {
-    /* margin-top   : 2%;
-    margin-left  : 2%; */
-    margin       : 2%;
-    box-shadow   : inset 0 0 5px 5px rgb(90, 89, 89);
-    border-radius: 10px;
-    font-size    : 15px;
-    padding      : 4px;
-    padding-left : 7px;
+    margin-top: 20px;
+    /* box-shadow   : inset 0 0 5px 5px rgb(90, 89, 89); */
+    font-size: 15px;
+    padding: 7px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 10px;
 }
 
 @media (max-width: 460px) {

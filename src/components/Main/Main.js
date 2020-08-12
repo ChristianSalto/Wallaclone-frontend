@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 import NavBar from "../Navbar";
 import "./main.css";
 import Cards from "../Cards";
@@ -8,7 +9,7 @@ import Input from "../Input";
 import ButtonRadio from "../ButtonRadio/ButtonRadio";
 import SliderInp from "../SliderInp/SliderInp";
 
-import Icon from "@material-ui/core/Icon";
+// import Icon from "@material-ui/core/Icon";
 import { Button } from "@material-ui/core";
 import { FacebookIcon, TwitterIcon, LinkedinIcon } from "react-share";
 
@@ -28,6 +29,7 @@ export default function Main(props) {
 
   const handleFilter = async (event) => {
     const name = event.name;
+    console.log("estoy aqui", name)
     setName(name);
     setFilter((filter = { name, tags, price, skip }));
     const { result, msj } = await loadAds(filter, date);
@@ -61,42 +63,51 @@ export default function Main(props) {
     get();
   }, [loadAds, date, skip]);
 
- 
+
   return (
     <div className="grid-container">
       <header className="header">
         <NavBar />
       </header>
       <main className="main">
-        <Form onSubmit={handleFilter} initialValue={{ name: "" }}>
+        <Form onSubmit={handleFilter} initialValue={{ name }}>
           <div className="container-form">
-            <SliderInp handleFilterPrice={handleFilterPrice} value={value} />
-            <Input
-              name="name"
-              type="text"
-              className="inp-search"
-              placeholder="search..."
-            />
-            <Button className="btn-search" type="submit">
-              <Icon>search</Icon>
-            </Button>
-            <Button
-              className="btn-date"
-              type="button"
-              onClick={() => setDate(!date)}
-            >
-              latest announcements
-            </Button>
-            <ButtonRadio
-              handleFilterTags={handleFilterTags}
-              selectedValue={selectedValue}
-            />
-            <Button
-              className="btn-list-user"
-              onClick={() => props.history.push("/listuser")}
-            >
-              User list
-            </Button>
+            <div className="cntr-btn-inp">
+              <ButtonRadio
+                handleFilterTags={handleFilterTags}
+                selectedValue={selectedValue}
+              />
+              <Button className="btn-search" type="submit">
+                search
+              </Button>
+              <div>
+                <Input
+                  name="name"
+                  type="text"
+                  className="inp-search"
+                  placeholder="search..."
+                />
+              </div>
+            </div>
+            <div className="cntr-slide-btn">
+              <Button
+                className="btn-date"
+                type="button"
+                onClick={() => setDate(!date)}
+              >
+                <h4>latest announcements</h4>
+              </Button>
+              <Link to="/listuser" className="lnk-user-list">
+                <h4>USER LIST</h4>
+              </Link>
+              {/* <Button
+                className="btn-list-user"
+                onClick={() => props.history.push("/listuser")}
+              >
+                User list
+            </Button> */}
+              <SliderInp handleFilterPrice={handleFilterPrice} value={value} />
+            </div>
           </div>
         </Form>
         <div className="container-cards">
