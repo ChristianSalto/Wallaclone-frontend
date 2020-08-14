@@ -1,11 +1,11 @@
 .container-sld {
     display: flex;
-    height: 50px;
+    flex-direction: column;
+    height: flex;
     width: 350px;
-    /* border: 1px solid black; */
     position: absolute;
     right: 1%;
-    justify-content: space-between;
+    padding: 10px;
 }
 
 .slider {
@@ -17,12 +17,13 @@
     outline: none;
     opacity: 0.7;
     margin-top: 20px;
+    margin-left: 65px;
 }
 
 .n-range {
     color: rgb(255, 255, 255);
     margin-top: 15px;
-    margin-left: 25px;
+    margin-left: 68px;
 }
 
 px .slider:hover {
@@ -37,4 +38,16 @@ px .slider:hover {
     border-radius: 50%;
     background: #f89e29;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .container-sld {
+        position: initial;
+    }
+    .slider {
+        margin-left: 3px;
+    }
+    .n-range {
+        margin-left: 3px;
+    }
 }

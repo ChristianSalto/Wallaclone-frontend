@@ -9,7 +9,6 @@ const SliderInp = (props) => {
   console.log("SliderInp")
   return (
     <div className="container-sld">
-      <span className="n-range">{value} $</span>
       <input
         type="range"
         className="slider"
@@ -17,6 +16,7 @@ const SliderInp = (props) => {
         max="10000"
         onChange={handleFilterPrice}
       />
+      <span className="n-range">{value} $</span>
       {/* <input
         type="range"
         className="slider"

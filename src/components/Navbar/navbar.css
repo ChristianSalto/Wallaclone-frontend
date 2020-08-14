@@ -42,6 +42,7 @@
 }
 
 .nav-menu.show {
+    position: absolute;
     transition-duration: 1.5s;
     transform: translate(-25.5rem);
 }
@@ -70,4 +71,29 @@
 
 .img-cart:hover {
     filter: invert(66%) sepia(81%) saturate(584%) hue-rotate(129deg) brightness(106%) contrast(103%);
+}
+
+@media (max-width:700px) {
+    .nav-menu {
+        height: 135px;
+        width: 200px;
+        justify-content: start;
+        border-radius: 10px;
+        margin-top: -5px;
+    }
+    .container-menu {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 10px;
+    }
+    .nav-menu-li {
+        margin: 5px;
+        font-size: 15px;
+    }
+    .nav-menu.show {
+        transform: translate(-1.5rem);
+    }
 }

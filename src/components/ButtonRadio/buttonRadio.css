@@ -12,3 +12,10 @@
         font-size: 13px;
     }
 }
+
+@media (max-width: 360px) {
+    .btn-r-container {
+        margin-left: 2px;
+        font-size: 12px;
+    }
+}
