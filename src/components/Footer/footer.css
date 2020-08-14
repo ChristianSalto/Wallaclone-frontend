@@ -1,53 +1,4 @@
-/*----Grid Layout------*/
-
-.grid-container {
-    display: grid;
-    grid-template-areas: "header" "main" "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: 5rem 1fr 5rem;
-    height: 100%;
-}
-
-.header {
-    grid-area: header;
-    background-color: black;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: 1;
-}
-
-.main {
-    grid-area: main;
-}
-
-.h1-main {
-    color: rgb(136, 2, 2);
-    text-align: center;
-    margin-top: 5%;
-}
-
-.footer {
-    grid-area: footer;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-}
-
-/*----Main------*/
-
-.container-cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/*----Footer-----*/
-
-/* .cntr-footer {
+.cntr-footer {
     display: flex;
     justify-content: space-around;
     padding: 10px;
@@ -117,4 +68,4 @@
         width: 25px;
         height: 25px;
     }
-} */
+}

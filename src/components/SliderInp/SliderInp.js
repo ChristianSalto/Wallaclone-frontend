@@ -6,6 +6,7 @@ const SliderInp = (props) => {
   const { value, handleFilterPrice } = props;
   // const [valueMin, setValueMin] = useState(0);
   // const [valueMax, setValueMax] = useState(100);
+  console.log("SliderInp")
   return (
     <div className="container-sld">
       <span className="n-range">{value} $</span>

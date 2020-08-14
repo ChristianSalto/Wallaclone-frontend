@@ -1,0 +1,10 @@
+.cntr-page {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+.cntr-page>h2 {
+    margin-top: 10px;
+}

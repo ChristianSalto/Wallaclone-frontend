@@ -117,7 +117,6 @@ export const fetchAds = (filter, date) => async (
   try {
     const data = await Api.getAds(filter, date);
     dispatch(fetchSuccessAds(data));
-    return data;
   } catch (error) {
     dispatch(fetchFailure(error));
   }

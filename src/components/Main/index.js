@@ -1,15 +1,18 @@
 import { connect } from "react-redux";
 
 import Main from "./Main";
-import { fetchAds } from "../../store/actions";
+import { getAds, getUi } from "../../store/selectors";
 
-function mapDispatchToProps(dispatch, ownProps) {
+
+function mapStateToProps(state, ownProps) {
   return {
-    loadAds: (filter, date) => dispatch(fetchAds(filter, date)),
-  };
+    getAds: getAds(state),
+    getUi: getUi(state),
+  }
 }
 
-const connected = connect(null, mapDispatchToProps);
+
+const connected = connect(mapStateToProps, null);
 const ConectMain = connected(Main);
 
 export default ConectMain;

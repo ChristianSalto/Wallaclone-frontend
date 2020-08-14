@@ -34,15 +34,14 @@
     transform: translateX(110px);
     transition-duration: 1.5s;
     width: 25rem;
-    height: 5rem;
-    margin-top: -80px;
+    height: 4.5rem;
+    margin-top: -75px;
     /**/
     background-color: rgb(0, 0, 0);
     z-index: -1;
 }
 
 .nav-menu.show {
-    position: absolute;
     transition-duration: 1.5s;
     transform: translate(-25.5rem);
 }

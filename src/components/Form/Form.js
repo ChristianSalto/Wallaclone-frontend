@@ -5,6 +5,7 @@ const { Provider: FormContextProvider } = formContext;
 
 const Form = ({ initialValue, onSubmit, children, ...props }) => {
   const [value, setValue] = useState(initialValue);
+  console.log("chil", children)
 
   const handleChange = (event) => {
     setValue({ ...value, [event.target.name]: event.target.value });
